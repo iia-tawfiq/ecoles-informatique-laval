@@ -12,7 +12,7 @@ using ecoles_informatiques.Data;
 namespace ecoles_informatiques.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240612130718_InitialisationClasseMetier")]
+    [Migration("20240612134331_InitialisationClasseMetier")]
     partial class InitialisationClasseMetier
     {
         /// <inheritdoc />
@@ -235,11 +235,16 @@ namespace ecoles_informatiques.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("GradelevelsId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("GradelevelsId");
 
                     b.ToTable("Diplomas");
                 });
@@ -394,24 +399,35 @@ namespace ecoles_informatiques.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ecoles_informatiques.Models.Diploma", b =>
+                {
+                    b.HasOne("ecoles_informatiques.Models.GradeLevel", "Gradelevels")
+                        .WithMany()
+                        .HasForeignKey("GradelevelsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Gradelevels");
+                });
+
             modelBuilder.Entity("ecoles_informatiques.Models.Formation", b =>
                 {
                     b.HasOne("ecoles_informatiques.Models.Diploma", "Diploma")
                         .WithMany()
                         .HasForeignKey("DiplomaId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ecoles_informatiques.Models.GradeLevel", "MinimumGrade")
                         .WithMany()
                         .HasForeignKey("MinimumGradeId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ecoles_informatiques.Models.School", "School")
                         .WithMany("Formations")
                         .HasForeignKey("SchoolId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Diploma");
