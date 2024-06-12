@@ -44,7 +44,7 @@ namespace ecoles_informatiques.Data.Migrations
                 column: "GradeLevelId",
                 principalTable: "GradeLevels",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.NoAction);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Formations_GradeLevels_GradeLevelId",
@@ -52,7 +52,7 @@ namespace ecoles_informatiques.Data.Migrations
                 column: "GradeLevelId",
                 principalTable: "GradeLevels",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.NoAction);
         }
 
         /// <inheritdoc />
@@ -92,7 +92,7 @@ namespace ecoles_informatiques.Data.Migrations
                 column: "GradelevelsId",
                 principalTable: "GradeLevels",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.NoAction);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Formations_GradeLevels_MinimumGradeId",
@@ -100,7 +100,7 @@ namespace ecoles_informatiques.Data.Migrations
                 column: "MinimumGradeId",
                 principalTable: "GradeLevels",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.NoAction);
         }
     }
 }
