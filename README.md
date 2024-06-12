@@ -15,8 +15,8 @@
   - Gestion d'une ecole (avec liste des formations) # /admin/ecoles/id (Gaël)
   - Gestion des formations /admin/formation/id (Lucas)
   - récupérer les données sur les écoles (Gaël)
-- Créer la base de données
-  - MCD (Lucas)
+- Créer la base de données (Lucas)
+  - MCD (Ensemble)
   - Unicité du slug du nom de l'école (Killian Trigger !)
     - Règles des slugs -> pas d'accents, pas d'espace (-), pas de majuscules, pas de caractères spéciaux (supprimer)    
 - Faire le design du site 
