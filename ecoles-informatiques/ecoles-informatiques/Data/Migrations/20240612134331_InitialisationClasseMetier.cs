@@ -11,19 +11,6 @@ namespace ecoles_informatiques.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Diplomas",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Diplomas", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "GradeLevels",
                 columns: table => new
                 {
@@ -51,6 +38,26 @@ namespace ecoles_informatiques.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Schools", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Diplomas",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    GradelevelsId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Diplomas", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Diplomas_GradeLevels_GradelevelsId",
+                        column: x => x.GradelevelsId,
+                        principalTable: "GradeLevels",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -93,6 +100,11 @@ namespace ecoles_informatiques.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Diplomas_GradelevelsId",
+                table: "Diplomas",
+                column: "GradelevelsId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Formations_DiplomaId",
                 table: "Formations",
                 column: "DiplomaId");
@@ -118,10 +130,10 @@ namespace ecoles_informatiques.Data.Migrations
                 name: "Diplomas");
 
             migrationBuilder.DropTable(
-                name: "GradeLevels");
+                name: "Schools");
 
             migrationBuilder.DropTable(
-                name: "Schools");
+                name: "GradeLevels");
         }
     }
 }
