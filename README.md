@@ -32,3 +32,6 @@
   - Maillage interne
   - Une page par mot clé essentiel
   - Meta description
+
+-- Test Pull Request Tawfiq
+
