@@ -396,19 +396,19 @@ namespace ecoles_informatiques.Data.Migrations
                     b.HasOne("ecoles_informatiques.Models.Diploma", "Diploma")
                         .WithMany()
                         .HasForeignKey("DiplomaId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("ecoles_informatiques.Models.GradeLevel", "MinimumGrade")
                         .WithMany()
                         .HasForeignKey("MinimumGradeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("ecoles_informatiques.Models.School", "School")
                         .WithMany("Formations")
                         .HasForeignKey("SchoolId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Diploma");
