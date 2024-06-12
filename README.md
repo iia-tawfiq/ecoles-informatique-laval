@@ -6,7 +6,7 @@
     - Filtres
     - Recherche
   - Une page par ecole # /ecoles/nom-ecole (Gaël)
-  - Une page par formation de l'école # /ecoles/nom-ecole/formation (Gaël)
+  - Une page par formation de l'école # /ecoles/nom-ecole/formation (Tawfiq)
   - Carte intéractive (Open Street Map) # /carte (Rémi)
 - Administration
   - Authentification (Rémi)
@@ -15,8 +15,8 @@
   - Gestion d'une ecole (avec liste des formations) # /admin/ecoles/id (Gaël)
   - Gestion des formations /admin/formation/id (Lucas)
   - récupérer les données sur les écoles (Gaël)
-- Créer la base de données
-  - MCD (Lucas)
+- Créer la base de données (Lucas)
+  - MCD (Ensemble)
   - Unicité du slug du nom de l'école (Killian Trigger !)
     - Règles des slugs -> pas d'accents, pas d'espace (-), pas de majuscules, pas de caractères spéciaux (supprimer)    
 - Faire le design du site 
@@ -32,3 +32,6 @@
   - Maillage interne
   - Une page par mot clé essentiel
   - Meta description
+
+-- Test Pull Request Tawfiq
+
