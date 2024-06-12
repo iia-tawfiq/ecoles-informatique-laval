@@ -1,30 +1,34 @@
-# ecoles-informatique-laval
-Comparaison des écoles d'informatique de Laval
-## titre niveau 2
-Formatage de texte : **gras** *italique* _souligne_ ~~barrer~~
-Lien : [Ceci est un lien vers Google](https://google.fr)
-Ceci est une `commande`
-```csharp
-int i = 2;
-foreach(int t in tutu){
-  int j = 3;
-}
-```
-
-test
-test
-test
-test
-
-||
-test
-||
-
-
-> Ceci est une citation
-
-The background color is `#ffffff` for light mode and `#000000` for dark mode.
-<img width="200" src="https://github.com/iia-tawfiq/ecoles-informatique-laval/assets/23529983/2a5a77d2-c92e-4945-af7a-ea5743595d25">
-![image](https://github.com/iia-tawfiq/ecoles-informatique-laval/assets/23529983/2a5a77d2-c92e-4945-af7a-ea5743595d25)
+# Comparaison des écoles d'informatique de Laval
+- Créer le projet (Rémi)
+- Pages
+  - Accueil (Rémi) # /
+  - Liste des écoles /ecoles (Killian)
+    - Filtres
+    - Recherche
+  - Une page par ecole # /ecoles/nom-ecole (Gaël)
+  - Une page par formation de l'école # /ecoles/nom-ecole/formation (Gaël)
+  - Carte intéractive (Open Street Map) # /carte (Rémi)
+- Administration
+  - Authentification (Rémi)
+  - Gestion page Accueil: Un texte et une photo (Rémi)
+  - Gestion des écoles # /admin/ecoles (Killian)
+  - Gestion d'une ecole (avec liste des formations) # /admin/ecoles/id (Gaël)
+  - Gestion des formations /admin/formation/id (Lucas)
+  - récupérer les données sur les écoles (Lucas)
+- Créer la base de données
+  - MCD (Lucas)
+  - Unicité du slug du nom de l'école (Killian Trigger !)
+    - Règles des slugs -> pas d'accents, pas d'espace (-), pas de majuscules, pas de caractères spéciaux (supprimer)    
+- Faire le design du site 
+  - Créer un WireFrame
+  - Choisir un style
+- Choisir un hébergeur
+  - déployer le site
 
 
+- SEO
+  - contraintes sur les routes
+  - Mise en valeur des mots clés
+  - Maillage interne
+  - Une page par mot clé essentiel
+  - Meta description
