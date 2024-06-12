@@ -408,7 +408,7 @@ namespace ecoles_informatiques.Data.Migrations
                     b.HasOne("ecoles_informatiques.Models.School", "School")
                         .WithMany("Formations")
                         .HasForeignKey("SchoolId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Diploma");
