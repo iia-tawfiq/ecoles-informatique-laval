@@ -396,3 +396,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/ecoles-informatiques/ecoles-informatiques/Views/School/index.cshtml
+/ecoles-informatiques/ecoles-informatiques/Views/School/Index.cshtml
