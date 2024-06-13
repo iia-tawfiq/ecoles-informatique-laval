@@ -21,7 +21,8 @@
         @foreach (var school in Model.Schools)
         {
             <tr>
-                <td>@school.Name</td>
+                <!-- lien cassé le temps d'avoir les pages individuelles -->
+                <td><a asp-controller="School" asp-action="School" asp-route-id="@school.Id"></a>@school.Name</td>
                 <td>@school.Address</td>
                 <td>@school.City</td>
             </tr>
