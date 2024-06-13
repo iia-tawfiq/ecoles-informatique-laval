@@ -5,13 +5,13 @@
 namespace ecoles_informatiques.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class AddVilleToSchool : Migration
+    public partial class AddCityToSchool : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "Ville",
+                name: "City",
                 table: "Schools",
                 type: "nvarchar(max)",
                 nullable: false,
@@ -22,7 +22,7 @@ namespace ecoles_informatiques.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Ville",
+                name: "City",
                 table: "Schools");
         }
     }
