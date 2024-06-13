@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ecoles_informatiques.Data;
 
@@ -11,9 +12,11 @@ using ecoles_informatiques.Data;
 namespace ecoles_informatiques.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240612145739_SecondMigrationFK")]
+    partial class SecondMigrationFK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,20 +50,6 @@ namespace ecoles_informatiques.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "1",
-                            Name = "Admin",
-                            NormalizedName = "ADMIN"
-                        },
-                        new
-                        {
-                            Id = "2",
-                            Name = "User",
-                            NormalizedName = "USER"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -151,40 +140,6 @@ namespace ecoles_informatiques.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "60fb5145-7fa7-4e07-af4d-323a8cb19b39",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "f566d4f1-71db-4e1d-9d2f-0687c115a3bd",
-                            Email = "admin@example.com",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@EXAMPLE.COM",
-                            NormalizedUserName = "ADMIN@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKlSarKu3b7SY5zmTJiw/PXGEl44hYib6QB5ky2Ojoop9XtqcSz0Q3CtfAN48/4iaA==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "OECJYRXF22Y64JSHS5RWDF2M7GYBQE6G",
-                            TwoFactorEnabled = false,
-                            UserName = "admin"
-                        },
-                        new
-                        {
-                            Id = "6250adfa-eb23-455b-aea7-494361b7f13f",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "be3506fd-2240-41aa-83fa-5ff71692e6e7",
-                            Email = "test@test.com",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "TEST@TEST.COM",
-                            NormalizedUserName = "TEST@TEST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDV5FsUSkQxOUS174ZmRw7BnW/jsI8GLVdguXhJP1fbyev7gdDUIDvXX2xKgtsQLBQ==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "RVWKTAEQWZLJUJXFHCXUHCQIDDWW27FQ",
-                            TwoFactorEnabled = false,
-                            UserName = "ustest@test.comer"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -249,18 +204,6 @@ namespace ecoles_informatiques.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "60fb5145-7fa7-4e07-af4d-323a8cb19b39",
-                            RoleId = "1"
-                        },
-                        new
-                        {
-                            UserId = "6250adfa-eb23-455b-aea7-494361b7f13f",
-                            RoleId = "2"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -304,38 +247,6 @@ namespace ecoles_informatiques.Data.Migrations
                     b.HasIndex("GradeLevelId");
 
                     b.ToTable("Diplomas");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            GradeLevelId = 4,
-                            Name = "Diplôme d'ingénieur"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            GradeLevelId = 4,
-                            Name = "Master"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            GradeLevelId = 3,
-                            Name = "Licence"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            GradeLevelId = 2,
-                            Name = "BTS"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            GradeLevelId = 2,
-                            Name = "IUT"
-                        });
                 });
 
             modelBuilder.Entity("ecoles_informatiques.Models.Formation", b =>
@@ -385,99 +296,6 @@ namespace ecoles_informatiques.Data.Migrations
                     b.HasIndex("SchoolId");
 
                     b.ToTable("Formations");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ApprenticeshipStatus = true,
-                            Description = "Formation en cybersécurité avec spécialisation en systèmes embarqués.",
-                            DiplomaId = 1,
-                            GradeLevelId = 4,
-                            Name = "Ingénierie en Cybersécurité",
-                            Price = 5000.0,
-                            SchoolId = 1,
-                            Slug = "ingenierie-cybersecurite",
-                            StudentStatus = true
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ApprenticeshipStatus = false,
-                            Description = "Programme de Bachelor avec des spécialisations en développement logiciel et data science.",
-                            DiplomaId = 3,
-                            GradeLevelId = 3,
-                            Name = "Bachelor en Informatique",
-                            Price = 3500.0,
-                            SchoolId = 2,
-                            Slug = "bachelor-informatique",
-                            StudentStatus = true
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ApprenticeshipStatus = true,
-                            Description = "Diplôme Universitaire de Technologie en informatique avec une option en réseaux et télécommunications.",
-                            DiplomaId = 5,
-                            GradeLevelId = 2,
-                            Name = "DUT Informatique",
-                            Price = 0.0,
-                            SchoolId = 3,
-                            Slug = "dut-informatique",
-                            StudentStatus = true
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ApprenticeshipStatus = true,
-                            Description = "Brevet de Technicien Supérieur en services informatiques aux organisations.",
-                            DiplomaId = 4,
-                            GradeLevelId = 2,
-                            Name = "BTS Services Informatiques aux Organisations",
-                            Price = 0.0,
-                            SchoolId = 4,
-                            Slug = "bts-sio",
-                            StudentStatus = true
-                        },
-                        new
-                        {
-                            Id = 5,
-                            ApprenticeshipStatus = true,
-                            Description = "Licence professionnelle avec des cours avancés en gestion des systèmes d'information.",
-                            DiplomaId = 3,
-                            GradeLevelId = 3,
-                            Name = "Licence Professionnelle en Informatique",
-                            Price = 0.0,
-                            SchoolId = 5,
-                            Slug = "licence-pro-informatique",
-                            StudentStatus = true
-                        },
-                        new
-                        {
-                            Id = 6,
-                            ApprenticeshipStatus = true,
-                            Description = "Formation pour devenir développeur web et web mobile, incluant des compétences en front-end et back-end.",
-                            DiplomaId = 4,
-                            GradeLevelId = 2,
-                            Name = "Développeur Web et Web Mobile",
-                            Price = 5200.0,
-                            SchoolId = 6,
-                            Slug = "dev-web-mobile",
-                            StudentStatus = true
-                        },
-                        new
-                        {
-                            Id = 7,
-                            ApprenticeshipStatus = true,
-                            Description = "Formation de manager en cybersécurité pour acquérir des compétences avancées en protection des systèmes d'information.",
-                            DiplomaId = 2,
-                            GradeLevelId = 4,
-                            Name = "Manager Cybersécurité",
-                            Price = 7500.0,
-                            SchoolId = 6,
-                            Slug = "manager-cybersecurite",
-                            StudentStatus = true
-                        });
                 });
 
             modelBuilder.Entity("ecoles_informatiques.Models.GradeLevel", b =>
@@ -499,32 +317,6 @@ namespace ecoles_informatiques.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("GradeLevels");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            LongLabel = "Baccalauréat",
-                            ShortLabel = "Bac"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            LongLabel = "Diplôme de niveau Bac+2",
-                            ShortLabel = "Bac+2"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            LongLabel = "Diplôme de niveau Bac+3",
-                            ShortLabel = "Bac+3"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            LongLabel = "Diplôme de niveau Bac+5",
-                            ShortLabel = "Bac+5"
-                        });
                 });
 
             modelBuilder.Entity("ecoles_informatiques.Models.School", b =>
@@ -536,10 +328,6 @@ namespace ecoles_informatiques.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -558,62 +346,6 @@ namespace ecoles_informatiques.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Schools");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Address = "38 Rue des Drs Calmette et Guérin",
-                            City = "Laval",
-                            Description = "École d'ingénieurs spécialisée en numérique et cybersécurité",
-                            Name = "ESIEA Laval",
-                            Slug = "esiea-laval"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Address = "123 Rue de Bretagne",
-                            City = "Laval",
-                            Description = "École de commerce offrant des BTS et des Bachelors",
-                            Name = "ESUP Laval",
-                            Slug = "esup-laval"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Address = "52 Rue des Docteurs Calmette",
-                            City = "Laval",
-                            Description = "Institut Universitaire de Technologie",
-                            Name = "IUT Laval",
-                            Slug = "iut-laval"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Address = "14 Rue de l'Alma",
-                            City = "Laval",
-                            Description = "Lycée général et technologique",
-                            Name = "Lycée Douanier Rousseau",
-                            Slug = "lycee-douanier-rousseau"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Address = "28 Rue des Déportés",
-                            City = "Laval",
-                            Description = "Lycée proposant des formations professionnelles et technologiques",
-                            Name = "Lycée Réaumur",
-                            Slug = "lycee-reaumur"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Address = "5 Boulevard de l'Industrie, Saint-Berthevin",
-                            City = "Laval",
-                            Description = "Institut d'Informatique Appliquée spécialisé en informatique et numérique",
-                            Name = "IIA Laval",
-                            Slug = "iia-laval"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -681,7 +413,7 @@ namespace ecoles_informatiques.Data.Migrations
             modelBuilder.Entity("ecoles_informatiques.Models.Formation", b =>
                 {
                     b.HasOne("ecoles_informatiques.Models.Diploma", "Diploma")
-                        .WithMany("Formations")
+                        .WithMany()
                         .HasForeignKey("DiplomaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -703,11 +435,6 @@ namespace ecoles_informatiques.Data.Migrations
                     b.Navigation("MinimumGrade");
 
                     b.Navigation("School");
-                });
-
-            modelBuilder.Entity("ecoles_informatiques.Models.Diploma", b =>
-                {
-                    b.Navigation("Formations");
                 });
 
             modelBuilder.Entity("ecoles_informatiques.Models.School", b =>

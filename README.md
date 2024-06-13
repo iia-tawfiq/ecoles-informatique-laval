@@ -10,10 +10,11 @@
   - Carte intéractive (Open Street Map) # /carte (Rémi)
 - Administration
   - Authentification (Rémi)
-  - Gestion page Accueil: Un texte et une photo (Rémi)
+  - Gestion page Accueil: Un texte et une photo # /admin/accueil (Rémi)
   - Gestion des écoles # /admin/ecoles (Killian)
   - Gestion d'une ecole (avec liste des formations) # /admin/ecoles/id (Gaël)
   - Gestion des formations /admin/formation/id (Lucas)
+  - Gestion des diplômes /admin/diplomes (Nathan)
   - récupérer les données sur les écoles (Gaël)
 - Créer la base de données (Lucas)
   - MCD (Ensemble)
@@ -33,5 +34,4 @@
   - Une page par mot clé essentiel
   - Meta description
 
--- Test Pull Request Tawfiq
-
+![image_2024-06-12_164240305](https://github.com/iia-tawfiq/ecoles-informatique-laval/assets/129685293/04c81d4b-f2a6-4056-878a-875f98bc357e)
