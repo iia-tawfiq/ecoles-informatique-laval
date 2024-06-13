@@ -6,5 +6,7 @@
 
         public string Name { get; set; }
 
+        public GradeLevel Gradelevels { get; set; }
+        public int GradeLevelId { get; set;}
     }
 }

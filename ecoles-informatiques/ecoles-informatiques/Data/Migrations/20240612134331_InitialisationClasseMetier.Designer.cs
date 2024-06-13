@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ecoles_informatiques.Data;
 
@@ -11,9 +12,11 @@ using ecoles_informatiques.Data;
 namespace ecoles_informatiques.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240612134331_InitialisationClasseMetier")]
+    partial class InitialisationClasseMetier
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -232,7 +235,7 @@ namespace ecoles_informatiques.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("GradeLevelId")
+                    b.Property<int>("GradelevelsId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -241,7 +244,7 @@ namespace ecoles_informatiques.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GradeLevelId");
+                    b.HasIndex("GradelevelsId");
 
                     b.ToTable("Diplomas");
                 });
@@ -264,7 +267,7 @@ namespace ecoles_informatiques.Data.Migrations
                     b.Property<int>("DiplomaId")
                         .HasColumnType("int");
 
-                    b.Property<int>("GradeLevelId")
+                    b.Property<int>("MinimumGradeId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -288,7 +291,7 @@ namespace ecoles_informatiques.Data.Migrations
 
                     b.HasIndex("DiplomaId");
 
-                    b.HasIndex("GradeLevelId");
+                    b.HasIndex("MinimumGradeId");
 
                     b.HasIndex("SchoolId");
 
@@ -400,7 +403,7 @@ namespace ecoles_informatiques.Data.Migrations
                 {
                     b.HasOne("ecoles_informatiques.Models.GradeLevel", "Gradelevels")
                         .WithMany()
-                        .HasForeignKey("GradeLevelId")
+                        .HasForeignKey("GradelevelsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -417,7 +420,7 @@ namespace ecoles_informatiques.Data.Migrations
 
                     b.HasOne("ecoles_informatiques.Models.GradeLevel", "MinimumGrade")
                         .WithMany()
-                        .HasForeignKey("GradeLevelId")
+                        .HasForeignKey("MinimumGradeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
