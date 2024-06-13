@@ -336,6 +336,7 @@ namespace ecoles_informatiques.Data.Migrations
                             GradeLevelId = 2,
                             Name = "IUT"
                         });
+                        b.ToTable("Diploma", (string)null);
                 });
 
             modelBuilder.Entity("ecoles_informatiques.Models.Formation", b =>
@@ -478,6 +479,7 @@ namespace ecoles_informatiques.Data.Migrations
                             Slug = "manager-cybersecurite",
                             StudentStatus = true
                         });
+                    b.ToTable("Formations", (string)null);
                 });
 
             modelBuilder.Entity("ecoles_informatiques.Models.GradeLevel", b =>
@@ -525,6 +527,7 @@ namespace ecoles_informatiques.Data.Migrations
                             LongLabel = "Diplôme de niveau Bac+5",
                             ShortLabel = "Bac+5"
                         });
+                    b.ToTable("GradeLevels", (string)null);
                 });
 
             modelBuilder.Entity("ecoles_informatiques.Models.School", b =>
@@ -614,6 +617,7 @@ namespace ecoles_informatiques.Data.Migrations
                             Name = "IIA Laval",
                             Slug = "iia-laval"
                         });
+                    b.ToTable("Schools", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

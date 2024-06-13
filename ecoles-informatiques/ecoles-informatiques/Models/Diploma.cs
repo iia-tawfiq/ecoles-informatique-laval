@@ -8,5 +8,7 @@
 
         public GradeLevel Gradelevels { get; set; }
         public int GradeLevelId { get; set;}
+
+        public List<Formation> Formations { get; set; }
     }
 }

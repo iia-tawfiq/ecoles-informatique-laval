@@ -6,7 +6,9 @@
     - Filtres
     - Recherche
   - Une page par ecole # /ecoles/nom-ecole (Gaël)
-  - Une page par formation de l'école # /ecoles/nom-ecole/formation (Tawfiq)
+  - Liste des formations (Nathan) # /formations 
+  - Une page par formation (Nathan) /formations/nom-formation
+  - Une page par formation de l'école # /ecoles/nom-ecole/formation (Nathan)
   - Carte intéractive (Open Street Map) # /carte (Rémi)
 - Administration
   - Authentification (Rémi)
