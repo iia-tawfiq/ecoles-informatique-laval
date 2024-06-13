@@ -1,0 +1,13 @@
+﻿@model School
+
+<h1>@Model.Name</h1>
+
+<ul>
+    @if(Model.Formations != null) 
+    {
+        @foreach (Formation formation in Model.Formations)
+        {
+            <li>@formation.Name</li>
+        }
+    }
+</ul>
