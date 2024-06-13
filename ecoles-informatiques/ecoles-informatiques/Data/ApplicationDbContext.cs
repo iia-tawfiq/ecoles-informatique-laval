@@ -163,7 +163,7 @@ namespace ecoles_informatiques.Data
 				new IdentityUser
 				{
 					Id = "6250adfa-eb23-455b-aea7-494361b7f13f",
-					UserName = "ustest@test.comer",
+					UserName = "test@test.com",
 					NormalizedUserName = "TEST@TEST.COM",
 					Email = "test@test.com",
 					NormalizedEmail = "TEST@TEST.COM",
