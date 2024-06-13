@@ -1,0 +1,17 @@
+﻿@model DiplomaViewModel
+@{
+    ViewData["Title"] = "Diplômes";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Liste des diplômes</h1>
+</div>
+<div>
+    <ul>
+        @foreach (Diploma d in Model.Diplomas)
+        {
+            <li><a asp-controller="Diplomas" asp-action="Diploma" asp-route-id="@d.Id">@d.Name</a></li>
+        }
+       
+    </ul>
+</div>
