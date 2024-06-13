@@ -6,8 +6,9 @@
     - Filtres
     - Recherche
   - Une page par ecole # /ecoles/nom-ecole (Gaël)
-  - Liste des formations (Nathan) # /formations 
-  - Une page par formation de l'école (Nathan) # /ecoles/nom-ecole/formation 
+  - Une page par formation (Tawfiq) # /ecoles/nom-ecole/formation
+  - Liste des diplômes (Nathan) # /diplomes 
+  - Lise des formations de ce diplôme (Nathan) # /diplomes/nom-diplome/formations
   - Carte intéractive (Open Street Map) # /carte (Rémi)
 - Administration
   - Authentification (Rémi)
@@ -15,6 +16,7 @@
   - Gestion des écoles # /admin/ecoles (Killian)
   - Gestion d'une ecole (avec liste des formations) # /admin/ecoles/id (Gaël)
   - Gestion des formations /admin/formation/id (Lucas)
+  - Gestion des diplômes /admin/diplomes (Nathan)
   - récupérer les données sur les écoles (Gaël)
 - Créer la base de données (Lucas)
   - MCD (Ensemble)
