@@ -12,8 +12,8 @@ using ecoles_informatiques.Data;
 namespace ecoles_informatiques.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240613070915_AddVilleToSchool")]
-    partial class AddVilleToSchool
+    [Migration("20240613071721_AddCityToSchool")]
+    partial class AddCityToSchool
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -331,6 +331,10 @@ namespace ecoles_informatiques.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -340,10 +344,6 @@ namespace ecoles_informatiques.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Slug")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Ville")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
