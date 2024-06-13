@@ -35,5 +35,4 @@
   - Une page par mot clé essentiel
   - Meta description
 
--- Test Pull Request Tawfiq
-
+![image_2024-06-12_164240305](https://github.com/iia-tawfiq/ecoles-informatique-laval/assets/129685293/04c81d4b-f2a6-4056-878a-875f98bc357e)
