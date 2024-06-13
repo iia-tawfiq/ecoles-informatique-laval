@@ -1,0 +1,27 @@
+﻿@model DbSet<GradeLevel>
+
+	<button asp-action="Create">Créer</button>
+	<table class="table">
+		<tr>
+			<th>
+				ShortLabel
+			</th>
+			<th>
+				LongLabel
+			</th>
+			<th></th>
+		</tr>
+	@foreach(var gradeLevel in Model)
+	{
+		
+		<tr>
+			<td>@gradeLevel.ShortLabel</td>
+			<td>@gradeLevel.LongLabel</td>
+			<td>
+				<a class="btn btn-warning" asp-action="Update" asp-route-id="@gradeLevel.Id">Modifier</a> 
+				<a class="btn btn-primary" asp-action="Details" asp-route-id="@gradeLevel.Id">Details</a> 
+				<a class="btn btn-danger" asp-action="Delete" asp-route-id="@gradeLevel.Id">Supprimer</a>
+			</td>
+		</tr>
+	}
+	</table>

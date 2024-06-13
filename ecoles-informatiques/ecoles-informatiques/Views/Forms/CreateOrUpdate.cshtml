@@ -1,0 +1,11 @@
+﻿@model GradeLevelViewModel
+
+<form asp-action="Update" method="post">
+	<input asp-for="Id" type="hidden"/>
+	<label asp-for="ShortLabel" class="control-label">Libellé court</label>
+	<input asp-for="ShortLabel" class="form-control"/>
+
+	<label asp-for="LongLabel" class="control-label">Libellé long</label>
+	<input asp-for="LongLabel" class="form-control" />
+	<input type="submit" value="Envoyer" />
+</form>

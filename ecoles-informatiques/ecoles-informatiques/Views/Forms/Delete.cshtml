@@ -1,0 +1,17 @@
+﻿@model GradeLevelViewModel
+
+<div>
+	@if(Model.Message != null)
+	{
+		<div style="color: red;">
+			@Model.Message
+		</div>
+	})
+
+	Désirez-vous supprimer le Niveau d'étude : @Model.LongLabel (@Model.ShortLabel) ?
+	<form asp-action="Delete" method="post">
+		<input asp-for="Id" type="hidden" />
+		<button class="btn btn-success" type="submit">Supprimer</button>
+		<a class="btn btn-danger" asp-action="Index">Annuler</a>
+	</form>
+</div>
