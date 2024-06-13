@@ -19,6 +19,7 @@ public class SchoolController : Controller
     [Route("/ecoles")]
     public IActionResult Index(string? search)
     {
+        ViewData["currentFilter"] = search;
         List<School> schools = _context.Schools.ToList();
 
         search = Strings.Trim(search).ToLower();
