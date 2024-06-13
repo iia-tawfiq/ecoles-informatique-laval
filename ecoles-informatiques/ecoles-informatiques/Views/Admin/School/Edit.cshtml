@@ -6,7 +6,7 @@
 
 <div>
     <h1>Éditer l'ecole @Model.School.Name</h1>
-    <form asp-controller="AdminSchool" asp-action="Create" method="post">
+    <form asp-controller="AdminSchool" asp-action="Edit" method="post">
         <div asp-validation-summary="ModelOnly"></div>
         <div>
             <label asp-for="@Model.School.Name"></label>

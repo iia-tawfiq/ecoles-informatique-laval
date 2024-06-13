@@ -35,15 +35,15 @@ public class AdminSchoolController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create([Bind("Name, Address, Description, City")] School school)
     {
-        // @fixme: vérification par ModelState.IsValid non fonctionnelle
+        // @fixme: vérification par ModelState.IsValid non fonctionnelle car pas de restrictions sur les attributs
         if (true)
         {
+            // @todo: gérer les slugs automatiquement, placeholder en attendant
             school.Slug = "temp";
             await _context.AddAsync(school);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
         AdminSchoolCreateViewModel model = new AdminSchoolCreateViewModel(school);
 
         return View("~/Views/Admin/School/Create.cshtml", model);
@@ -64,9 +64,12 @@ public class AdminSchoolController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int id, [Bind("Name, Address, Description, City")] School school)
     {
-        // @fixme: vérification par ModelState.IsValid non fonctionnelle
+        // @fixme: vérification par ModelState.IsValid non fonctionnelle car pas de restrictions sur les attributs
         if (true)
         {
+            // @todo: gérer les slugs automatiquement, placeholder en attendant
+            school.Id = id;
+            school.Slug = "temp";
             _context.Update(school);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
