@@ -243,7 +243,7 @@ namespace ecoles_informatiques.Data.Migrations
 
                     b.HasIndex("GradeLevelId");
 
-                    b.ToTable("Diplomas");
+                    b.ToTable("Diplomas", (string)null);
                 });
 
             modelBuilder.Entity("ecoles_informatiques.Models.Formation", b =>
@@ -292,7 +292,7 @@ namespace ecoles_informatiques.Data.Migrations
 
                     b.HasIndex("SchoolId");
 
-                    b.ToTable("Formations");
+                    b.ToTable("Formations", (string)null);
                 });
 
             modelBuilder.Entity("ecoles_informatiques.Models.GradeLevel", b =>
@@ -313,7 +313,7 @@ namespace ecoles_informatiques.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GradeLevels");
+                    b.ToTable("GradeLevels", (string)null);
                 });
 
             modelBuilder.Entity("ecoles_informatiques.Models.School", b =>
@@ -346,7 +346,7 @@ namespace ecoles_informatiques.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Schools");
+                    b.ToTable("Schools", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
