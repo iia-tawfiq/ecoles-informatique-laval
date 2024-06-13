@@ -1,4 +1,5 @@
 ﻿using ecoles_informatiques.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
@@ -21,6 +22,7 @@ namespace ecoles_informatiques.Data
 		{
 			base.OnModelCreating(modelBuilder);
 
+			// Grade Levels
 			modelBuilder.Entity<GradeLevel>().HasData(
 				new GradeLevel { Id = 1, ShortLabel = "Bac", LongLabel = "Baccalauréat" },
 				new GradeLevel { Id = 2, ShortLabel = "Bac+2", LongLabel = "Diplôme de niveau Bac+2" },
@@ -28,116 +30,177 @@ namespace ecoles_informatiques.Data
 				new GradeLevel { Id = 4, ShortLabel = "Bac+5", LongLabel = "Diplôme de niveau Bac+5" }
 			);
 
+			// Diplomas
 			modelBuilder.Entity<Diploma>().HasData(
-				new Diploma { Id = 1, Name = "Diplôme d'ingénieur" },
-				new Diploma { Id = 2, Name = "Master" },
-				new Diploma { Id = 3, Name = "Licence" },
-				new Diploma { Id = 4, Name = "BTS" },
-				new Diploma { Id = 5, Name = "IUT" }
+				new Diploma { Id = 1, Name = "Diplôme d'ingénieur", GradeLevelId = 4 },
+				new Diploma { Id = 2, Name = "Master", GradeLevelId = 4 },
+				new Diploma { Id = 3, Name = "Licence", GradeLevelId = 3 },
+				new Diploma { Id = 4, Name = "BTS", GradeLevelId = 2 },
+				new Diploma { Id = 5, Name = "IUT", GradeLevelId = 2 }
 			);
 
+			// Schools
 			modelBuilder.Entity<School>().HasData(
-				new School { Id = 1, Name = "School A", Address = "Address A", Description = "Description A", Slug = "school-a" },
-				new School { Id = 2, Name = "School B", Address = "Address B", Description = "Description B", Slug = "school-b" },
-				new School { Id = 3, Name = "School C", Address = "Address C", Description = "Description C", Slug = "school-c" },
-				new School { Id = 4, Name = "School D", Address = "Address D", Description = "Description D", Slug = "school-d" },
-				new School { Id = 5, Name = "School E", Address = "Address E", Description = "Description E", Slug = "school-e" }
+				new School { Id = 1, Name = "ESIEA Laval", Address = "38 Rue des Drs Calmette et Guérin", City = "Laval", Description = "École d'ingénieurs spécialisée en numérique et cybersécurité", Slug = "esiea-laval" },
+				new School { Id = 2, Name = "ESUP Laval", Address = "123 Rue de Bretagne", City = "Laval", Description = "École de commerce offrant des BTS et des Bachelors", Slug = "esup-laval" },
+				new School { Id = 3, Name = "IUT Laval", Address = "52 Rue des Docteurs Calmette", City = "Laval", Description = "Institut Universitaire de Technologie", Slug = "iut-laval" },
+				new School { Id = 4, Name = "Lycée Douanier Rousseau", Address = "14 Rue de l'Alma", City = "Laval", Description = "Lycée général et technologique", Slug = "lycee-douanier-rousseau" },
+				new School { Id = 5, Name = "Lycée Réaumur", Address = "28 Rue des Déportés", City = "Laval", Description = "Lycée proposant des formations professionnelles et technologiques", Slug = "lycee-reaumur" },
+				new School { Id = 6, Name = "IIA Laval", Address = "5 Boulevard de l'Industrie, Saint-Berthevin", City = "Laval", Description = "Institut d'Informatique Appliquée spécialisé en informatique et numérique", Slug = "iia-laval" }
 			);
 
+			// Formations
 			modelBuilder.Entity<Formation>().HasData(
 				new Formation
 				{
 					Id = 1,
-					Name = "Formation A",
-					Price = 1000,
-					Description = "Description A",
-					Slug = "formation-a",
+					Name = "Ingénierie en Cybersécurité",
+					Price = 5000,
+					Description = "Formation en cybersécurité avec spécialisation en systèmes embarqués.",
+					Slug = "ingenierie-cybersecurite",
 					StudentStatus = true,
-					ApprenticeshipStatus = false,
+					ApprenticeshipStatus = true,
 					SchoolId = 1,
-					GradeLevelId = 1,
+					GradeLevelId = 4,
 					DiplomaId = 1
 				},
 				new Formation
 				{
 					Id = 2,
-					Name = "Formation B",
-					Price = 2000,
-					Description = "Description B",
-					Slug = "formation-b",
+					Name = "Bachelor en Informatique",
+					Price = 3500,
+					Description = "Programme de Bachelor avec des spécialisations en développement logiciel et data science.",
+					Slug = "bachelor-informatique",
 					StudentStatus = true,
-					ApprenticeshipStatus = true,
+					ApprenticeshipStatus = false,
 					SchoolId = 2,
-					GradeLevelId = 2,
-					DiplomaId = 2
-				},
-				new Formation
-				{
-					Id = 3,
-					Name = "Formation C",
-					Price = 3000,
-					Description = "Description C",
-					Slug = "formation-c",
-					StudentStatus = false,
-					ApprenticeshipStatus = true,
-					SchoolId = 3,
 					GradeLevelId = 3,
 					DiplomaId = 3
 				},
 				new Formation
 				{
-					Id = 4,
-					Name = "Formation D",
-					Price = 4000,
-					Description = "Description D",
-					Slug = "formation-d",
+					Id = 3,
+					Name = "DUT Informatique",
+					Price = 0,
+					Description = "Diplôme Universitaire de Technologie en informatique avec une option en réseaux et télécommunications.",
+					Slug = "dut-informatique",
 					StudentStatus = true,
-					ApprenticeshipStatus = false,
+					ApprenticeshipStatus = true,
+					SchoolId = 3,
+					GradeLevelId = 2,
+					DiplomaId = 5
+				},
+				new Formation
+				{
+					Id = 4,
+					Name = "BTS Services Informatiques aux Organisations",
+					Price = 0,
+					Description = "Brevet de Technicien Supérieur en services informatiques aux organisations.",
+					Slug = "bts-sio",
+					StudentStatus = true,
+					ApprenticeshipStatus = true,
 					SchoolId = 4,
-					GradeLevelId = 4,
+					GradeLevelId = 2,
 					DiplomaId = 4
 				},
 				new Formation
 				{
 					Id = 5,
-					Name = "Formation E",
-					Price = 5000,
-					Description = "Description E",
-					Slug = "formation-e",
-					StudentStatus = false,
-					ApprenticeshipStatus = false,
-					SchoolId = 5,
-					GradeLevelId = 1,
-					DiplomaId = 5
-				},
-				new Formation
-				{
-					Id = 6,
-					Name = "Formation F",
-					Price = 1500,
-					Description = "Description F",
-					Slug = "formation-f",
+					Name = "Licence Professionnelle en Informatique",
+					Price = 0,
+					Description = "Licence professionnelle avec des cours avancés en gestion des systèmes d'information.",
+					Slug = "licence-pro-informatique",
 					StudentStatus = true,
 					ApprenticeshipStatus = true,
-					SchoolId = 1,
-					GradeLevelId = 2,
+					SchoolId = 5,
+					GradeLevelId = 3,
 					DiplomaId = 3
 				},
 				new Formation
 				{
-					Id = 7,
-					Name = "Formation G",
-					Price = 2500,
-					Description = "Description G",
-					Slug = "formation-g",
-					StudentStatus = false,
+					Id = 6,
+					Name = "Développeur Web et Web Mobile",
+					Price = 5200,
+					Description = "Formation pour devenir développeur web et web mobile, incluant des compétences en front-end et back-end.",
+					Slug = "dev-web-mobile",
+					StudentStatus = true,
 					ApprenticeshipStatus = true,
-					SchoolId = 2,
-					GradeLevelId = 3,
+					SchoolId = 6,
+					GradeLevelId = 2,
 					DiplomaId = 4
+				},
+				new Formation
+				{
+					Id = 7,
+					Name = "Manager Cybersécurité",
+					Price = 7500,
+					Description = "Formation de manager en cybersécurité pour acquérir des compétences avancées en protection des systèmes d'information.",
+					Slug = "manager-cybersecurite",
+					StudentStatus = true,
+					ApprenticeshipStatus = true,
+					SchoolId = 6,
+					GradeLevelId = 4,
+					DiplomaId = 2
+				}
+			);
+
+			// Users
+			var hasher = new PasswordHasher<IdentityUser>();
+
+			modelBuilder.Entity<IdentityUser>().HasData(
+				new IdentityUser
+				{
+					Id = "1",
+					UserName = "admin",
+					NormalizedUserName = "ADMIN",
+					Email = "admin@example.com",
+					NormalizedEmail = "ADMIN@EXAMPLE.COM",
+					EmailConfirmed = true,
+					PasswordHash = hasher.HashPassword(null, "password"),
+					SecurityStamp = string.Empty
+				},
+				new IdentityUser
+				{
+					Id = "2",
+					UserName = "user",
+					NormalizedUserName = "USER",
+					Email = "user@example.com",
+					NormalizedEmail = "USER@EXAMPLE.COM",
+					EmailConfirmed = true,
+					PasswordHash = hasher.HashPassword(null, "password"),
+					SecurityStamp = string.Empty
+				}
+			);
+
+			modelBuilder.Entity<IdentityRole>().HasData(
+				new IdentityRole
+				{
+					Id = "1",
+					Name = "Admin",
+					NormalizedName = "ADMIN"
+				},
+				new IdentityRole
+				{
+					Id = "2",
+					Name = "User",
+					NormalizedName = "USER"
+				}
+			);
+
+			modelBuilder.Entity<IdentityUserRole<string>>().HasData(
+				new IdentityUserRole<string>
+				{
+					UserId = "1",
+					RoleId = "1"
+				},
+				new IdentityUserRole<string>
+				{
+					UserId = "2",
+					RoleId = "2"
 				}
 			);
 		}
+
 
 	}
 }
