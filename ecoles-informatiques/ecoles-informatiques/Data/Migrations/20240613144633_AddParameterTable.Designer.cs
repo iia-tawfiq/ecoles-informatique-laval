@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ecoles_informatiques.Data;
 
@@ -11,9 +12,11 @@ using ecoles_informatiques.Data;
 namespace ecoles_informatiques.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240613144633_AddParameterTable")]
+    partial class AddParameterTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -163,7 +166,7 @@ namespace ecoles_informatiques.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKlSarKu3b7SY5zmTJiw/PXGEl44hYib6QB5ky2Ojoop9XtqcSz0Q3CtfAN48/4iaA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECBA2P9NbBF4EYnzbeOzgLBDnjEYEm7cTMozZhKpUxsSvgf3UgyJ0BcUAD6MEaCUJQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "OECJYRXF22Y64JSHS5RWDF2M7GYBQE6G",
                             TwoFactorEnabled = false,
@@ -179,7 +182,7 @@ namespace ecoles_informatiques.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@TEST.COM",
                             NormalizedUserName = "TEST@TEST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDV5FsUSkQxOUS174ZmRw7BnW/jsI8GLVdguXhJP1fbyev7gdDUIDvXX2xKgtsQLBQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBcTkYciWW4JcO+khhM72JhyLQdE4pJqtwld0nLun38kuv22+8lzma89SdbPQV27WA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "RVWKTAEQWZLJUJXFHCXUHCQIDDWW27FQ",
                             TwoFactorEnabled = false,
