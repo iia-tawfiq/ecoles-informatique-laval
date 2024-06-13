@@ -6,10 +6,13 @@
 
 <div class="text-center">
     <h1>Liste des écoles d'informatique à Laval (53)</h1>
-    <form id="search" action="#" method="get">
-        <input type="text" name="search" placeholder="Rechercher..."/>
-        <input type="submit"/>
-    </form>
+    @using (Html.BeginForm())
+    {
+        <p>
+            @Html.TextBox("Search")
+            <input type="submit" value="Rechercher">
+        </p>
+    }
     <table class="table table-striped mt-4">
         <tr>
             <th>Nom</th>
@@ -21,13 +24,9 @@
             <tr>
                 <td>@school.Name</td>
                 <td>@school.Address</td>
-                <td>school.City</td>
+                <td>@school.City</td>
             </tr>
         }
     </table>
 </div>
 
-@section Scripts
-{
-    <script src="js/schoolsSearch.js" defer></script>
-}
