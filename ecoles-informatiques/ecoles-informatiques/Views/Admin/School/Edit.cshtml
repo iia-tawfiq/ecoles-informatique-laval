@@ -1,9 +1,36 @@
 @model ecoles_informatiques.Models.ViewModels.AdminSchoolEditViewModel
 
 @{
-    ViewData["Title"] = "Administration - Ecole " + Model.School.Id;
+    ViewData["Title"] = "Administration - Éditer l'ecole " + Model.School.Id;
 }
 
 <div>
-
+    <h1>Éditer l'ecole @Model.School.Name</h1>
+    <form asp-controller="AdminSchool" asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label asp-for="@Model.School.Name"></label>
+            <input asp-for="@Model.School.Name"/>
+            <span asp-validation-for="@Model.School.Name"></span>
+        </div>
+        <div>
+            <label asp-for="@Model.School.Description"></label>
+            <input asp-for="@Model.School.Description"/>
+            <span asp-validation-for="@Model.School.Description"></span>
+        </div>
+        <div>
+            <label asp-for="@Model.School.Address"></label>
+            <input asp-for="@Model.School.Address"/>
+            <span asp-validation-for="@Model.School.Address"></span>
+        </div>
+        <div>
+            <label asp-for="@Model.School.City"></label>
+            <input asp-for="@Model.School.City"/>
+            <span asp-validation-for="@Model.School.City"></span>
+        </div>
+        <input type="hidden" asp-for="@Model.School.Id"/>
+        @Html.AntiForgeryToken()
+        <input type="submit" value="Save"/>
+    </form>
+    <a asp-controller="AdminSchool" asp-action="Index">Retour</a>
 </div>

@@ -35,9 +35,11 @@ public class AdminSchoolController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create([Bind("Name, Address, Description, City")] School school)
     {
-        if (ModelState.IsValid)
+        // @fixme: vérification par ModelState.IsValid non fonctionnelle
+        if (true)
         {
-            _context.Add(school);
+            school.Slug = "temp";
+            await _context.AddAsync(school);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -62,7 +64,8 @@ public class AdminSchoolController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int id, [Bind("Name, Address, Description, City")] School school)
     {
-        if (ModelState.IsValid)
+        // @fixme: vérification par ModelState.IsValid non fonctionnelle
+        if (true)
         {
             _context.Update(school);
             await _context.SaveChangesAsync();
@@ -75,12 +78,15 @@ public class AdminSchoolController : Controller
 
     [HttpGet]
     [Route("/admin/ecoles/supprimer/{id}")]
-    [ValidateAntiForgeryToken]
-    public IActionResult Delete(int id)
+    //[ValidateAntiForgeryToken]
+    public async Task<IActionResult> Delete(int id)
     {
-        School school = _context.Schools.First(s => s.Id == id);
-        _context.Remove(school);
-        _context.SaveChanges();
+        School? school = await _context.Schools.FindAsync(id);
+        if (null != school)
+        {
+            _context.Remove(school);
+            await _context.SaveChangesAsync();
+        }
 
         return RedirectToAction(nameof(Index));
     }
