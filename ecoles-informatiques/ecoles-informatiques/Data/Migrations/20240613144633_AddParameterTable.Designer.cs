@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ecoles_informatiques.Data;
 
@@ -11,9 +12,11 @@ using ecoles_informatiques.Data;
 namespace ecoles_informatiques.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240613144633_AddParameterTable")]
+    partial class AddParameterTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -163,7 +166,7 @@ namespace ecoles_informatiques.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPk+QzkkQL9UCTnt7ytQhAwrqcZtuXn//4ew15/RNW1GhploP4Q27tA/K1W6UlPjoA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECBA2P9NbBF4EYnzbeOzgLBDnjEYEm7cTMozZhKpUxsSvgf3UgyJ0BcUAD6MEaCUJQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "OECJYRXF22Y64JSHS5RWDF2M7GYBQE6G",
                             TwoFactorEnabled = false,
@@ -179,11 +182,11 @@ namespace ecoles_informatiques.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@TEST.COM",
                             NormalizedUserName = "TEST@TEST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEXOY9AhrU7GlpjYz2sEqlCIKzTATb6ljJRGtM/ZPAuzZScicbu6WbyyuNUl7gyCPQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBcTkYciWW4JcO+khhM72JhyLQdE4pJqtwld0nLun38kuv22+8lzma89SdbPQV27WA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "RVWKTAEQWZLJUJXFHCXUHCQIDDWW27FQ",
                             TwoFactorEnabled = false,
-                            UserName = "test@test.com"
+                            UserName = "ustest@test.comer"
                         });
                 });
 
