@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ecoles_informatiques.Data;
 
@@ -11,9 +12,11 @@ using ecoles_informatiques.Data;
 namespace ecoles_informatiques.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240613074846_Seeds")]
+    partial class Seeds
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -336,7 +339,6 @@ namespace ecoles_informatiques.Data.Migrations
                             GradeLevelId = 2,
                             Name = "IUT"
                         });
-                        b.ToTable("Diploma", (string)null);
                 });
 
             modelBuilder.Entity("ecoles_informatiques.Models.Formation", b =>
@@ -479,7 +481,6 @@ namespace ecoles_informatiques.Data.Migrations
                             Slug = "manager-cybersecurite",
                             StudentStatus = true
                         });
-                    b.ToTable("Formations", (string)null);
                 });
 
             modelBuilder.Entity("ecoles_informatiques.Models.GradeLevel", b =>
@@ -527,7 +528,6 @@ namespace ecoles_informatiques.Data.Migrations
                             LongLabel = "Diplôme de niveau Bac+5",
                             ShortLabel = "Bac+5"
                         });
-                    b.ToTable("GradeLevels", (string)null);
                 });
 
             modelBuilder.Entity("ecoles_informatiques.Models.School", b =>
@@ -617,7 +617,6 @@ namespace ecoles_informatiques.Data.Migrations
                             Name = "IIA Laval",
                             Slug = "iia-laval"
                         });
-                    b.ToTable("Schools", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
