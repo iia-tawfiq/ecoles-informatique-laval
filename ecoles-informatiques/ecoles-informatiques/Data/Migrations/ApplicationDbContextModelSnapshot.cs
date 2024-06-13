@@ -155,35 +155,35 @@ namespace ecoles_informatiques.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1",
+                            Id = "60fb5145-7fa7-4e07-af4d-323a8cb19b39",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ec189e15-c493-41dd-a6a3-7e06d221abab",
+                            ConcurrencyStamp = "f566d4f1-71db-4e1d-9d2f-0687c115a3bd",
                             Email = "admin@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
-                            NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEUUwZdPcSmAhYjoDC+s7SQbQCj3fIfNoTfmifqBkbTN1Zjrz4+RsMH1QyWNMZodqQ==",
+                            NormalizedUserName = "ADMIN@EXAMPLE.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKlSarKu3b7SY5zmTJiw/PXGEl44hYib6QB5ky2Ojoop9XtqcSz0Q3CtfAN48/4iaA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "",
+                            SecurityStamp = "OECJYRXF22Y64JSHS5RWDF2M7GYBQE6G",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = "2",
+                            Id = "6250adfa-eb23-455b-aea7-494361b7f13f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c152dc2e-f586-4f45-9f8d-59b35b2c8e4c",
-                            Email = "user@example.com",
+                            ConcurrencyStamp = "be3506fd-2240-41aa-83fa-5ff71692e6e7",
+                            Email = "test@test.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "USER@EXAMPLE.COM",
-                            NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKmZ0V9yI4wMmA0n0mli/SDatImAP5hKe3rsxSByvsTPU1RXV9NMUlKlVvTSG4VoKg==",
+                            NormalizedEmail = "TEST@TEST.COM",
+                            NormalizedUserName = "TEST@TEST.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDV5FsUSkQxOUS174ZmRw7BnW/jsI8GLVdguXhJP1fbyev7gdDUIDvXX2xKgtsQLBQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "",
+                            SecurityStamp = "RVWKTAEQWZLJUJXFHCXUHCQIDDWW27FQ",
                             TwoFactorEnabled = false,
-                            UserName = "user"
+                            UserName = "ustest@test.comer"
                         });
                 });
 
@@ -253,12 +253,12 @@ namespace ecoles_informatiques.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "1",
+                            UserId = "60fb5145-7fa7-4e07-af4d-323a8cb19b39",
                             RoleId = "1"
                         },
                         new
                         {
-                            UserId = "2",
+                            UserId = "6250adfa-eb23-455b-aea7-494361b7f13f",
                             RoleId = "2"
                         });
                 });
@@ -336,7 +336,6 @@ namespace ecoles_informatiques.Data.Migrations
                             GradeLevelId = 2,
                             Name = "IUT"
                         });
-                        b.ToTable("Diploma", (string)null);
                 });
 
             modelBuilder.Entity("ecoles_informatiques.Models.Formation", b =>
@@ -479,7 +478,6 @@ namespace ecoles_informatiques.Data.Migrations
                             Slug = "manager-cybersecurite",
                             StudentStatus = true
                         });
-                    b.ToTable("Formations", (string)null);
                 });
 
             modelBuilder.Entity("ecoles_informatiques.Models.GradeLevel", b =>
@@ -527,7 +525,6 @@ namespace ecoles_informatiques.Data.Migrations
                             LongLabel = "Diplôme de niveau Bac+5",
                             ShortLabel = "Bac+5"
                         });
-                    b.ToTable("GradeLevels", (string)null);
                 });
 
             modelBuilder.Entity("ecoles_informatiques.Models.School", b =>
@@ -617,7 +614,6 @@ namespace ecoles_informatiques.Data.Migrations
                             Name = "IIA Laval",
                             Slug = "iia-laval"
                         });
-                    b.ToTable("Schools", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -685,7 +681,7 @@ namespace ecoles_informatiques.Data.Migrations
             modelBuilder.Entity("ecoles_informatiques.Models.Formation", b =>
                 {
                     b.HasOne("ecoles_informatiques.Models.Diploma", "Diploma")
-                        .WithMany()
+                        .WithMany("Formations")
                         .HasForeignKey("DiplomaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -707,6 +703,11 @@ namespace ecoles_informatiques.Data.Migrations
                     b.Navigation("MinimumGrade");
 
                     b.Navigation("School");
+                });
+
+            modelBuilder.Entity("ecoles_informatiques.Models.Diploma", b =>
+                {
+                    b.Navigation("Formations");
                 });
 
             modelBuilder.Entity("ecoles_informatiques.Models.School", b =>
