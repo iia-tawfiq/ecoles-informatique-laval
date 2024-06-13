@@ -150,27 +150,25 @@ namespace ecoles_informatiques.Data
 			modelBuilder.Entity<IdentityUser>().HasData(
 				new IdentityUser
 				{
-					Id = "60fb5145-7fa7-4e07-af4d-323a8cb19b39",
+					Id = "1",
 					UserName = "admin",
-					NormalizedUserName = "ADMIN@EXAMPLE.COM",
+					NormalizedUserName = "ADMIN",
 					Email = "admin@example.com",
 					NormalizedEmail = "ADMIN@EXAMPLE.COM",
 					EmailConfirmed = true,
-					PasswordHash = hasher.HashPassword(null, "Testtest9*"),
-					ConcurrencyStamp = "f566d4f1-71db-4e1d-9d2f-0687c115a3bd",
-					SecurityStamp = "OECJYRXF22Y64JSHS5RWDF2M7GYBQE6G",
+					PasswordHash = hasher.HashPassword(null, "password"),
+					SecurityStamp = string.Empty
 				},
 				new IdentityUser
 				{
-					Id = "6250adfa-eb23-455b-aea7-494361b7f13f",
-					UserName = "ustest@test.comer",
-					NormalizedUserName = "TEST@TEST.COM",
-					Email = "test@test.com",
-					NormalizedEmail = "TEST@TEST.COM",
+					Id = "2",
+					UserName = "user",
+					NormalizedUserName = "USER",
+					Email = "user@example.com",
+					NormalizedEmail = "USER@EXAMPLE.COM",
 					EmailConfirmed = true,
-					PasswordHash = hasher.HashPassword(null, "Testtest9*"),
-					ConcurrencyStamp = "be3506fd-2240-41aa-83fa-5ff71692e6e7",
-					SecurityStamp = "RVWKTAEQWZLJUJXFHCXUHCQIDDWW27FQ"
+					PasswordHash = hasher.HashPassword(null, "password"),
+					SecurityStamp = string.Empty
 				}
 			);
 
@@ -192,12 +190,12 @@ namespace ecoles_informatiques.Data
 			modelBuilder.Entity<IdentityUserRole<string>>().HasData(
 				new IdentityUserRole<string>
 				{
-					UserId = "60fb5145-7fa7-4e07-af4d-323a8cb19b39",
+					UserId = "1",
 					RoleId = "1"
 				},
 				new IdentityUserRole<string>
 				{
-					UserId = "6250adfa-eb23-455b-aea7-494361b7f13f",
+					UserId = "2",
 					RoleId = "2"
 				}
 			);
