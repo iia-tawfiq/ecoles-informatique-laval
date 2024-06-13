@@ -12,7 +12,7 @@
   - Carte intéractive (Open Street Map) # /carte (Rémi)
 - Administration
   - Authentification (Rémi)
-  - Gestion page Accueil: Un texte et une photo (Rémi)
+  - Gestion page Accueil: Un texte et une photo # /admin/accueil (Rémi)
   - Gestion des écoles # /admin/ecoles (Killian)
   - Gestion d'une ecole (avec liste des formations) # /admin/ecoles/id (Gaël)
   - Gestion des formations /admin/formation/id (Lucas)
