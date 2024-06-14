@@ -21,7 +21,9 @@ namespace ecoles_informatiques.Controllers
         }
         public IActionResult Diploma(int id)
         {
-            DiplomaViewModel model = new DiplomaViewModel(_context.Diplomas.Find(id));
+            Diploma diploma = _context.Diplomas.Find(id);
+            List<Formation> formations = _context.Formations.Where(f => f.DiplomaId == id).ToList();
+            DiplomaViewModel model = new DiplomaViewModel(formations, diploma);
             return View(model);
         }
         public IActionResult Error()

@@ -3,13 +3,10 @@
     public class DiplomaViewModel
     {
         public List<Formation> Formations { get; set; }
-        public DiplomaViewModel(List<Formation> formations)
+        public Diploma Diplomas { get; set; }
+        public DiplomaViewModel(List<Formation> formations, Diploma diplomas)
         {
             Formations = formations;
-        }
-        public Diploma Diplomas { get; set; }
-        public DiplomaViewModel(Diploma diplomas)
-        {
             Diplomas = diplomas;
         }
 
