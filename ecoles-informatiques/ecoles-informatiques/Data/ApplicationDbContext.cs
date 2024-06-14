@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
+using NetTopologySuite.Geometries;
 
 namespace ecoles_informatiques.Data
 {
@@ -44,13 +45,67 @@ namespace ecoles_informatiques.Data
 
 			// Schools
 			modelBuilder.Entity<School>().HasData(
-				new School { Id = 1, Name = "ESIEA Laval", Address = "38 Rue des Drs Calmette et Guérin", City = "Laval", Description = "École d'ingénieurs spécialisée en numérique et cybersécurité", Slug = "esiea-laval" },
-				new School { Id = 2, Name = "ESUP Laval", Address = "123 Rue de Bretagne", City = "Laval", Description = "École de commerce offrant des BTS et des Bachelors", Slug = "esup-laval" },
-				new School { Id = 3, Name = "IUT Laval", Address = "52 Rue des Docteurs Calmette", City = "Laval", Description = "Institut Universitaire de Technologie", Slug = "iut-laval" },
-				new School { Id = 4, Name = "Lycée Douanier Rousseau", Address = "14 Rue de l'Alma", City = "Laval", Description = "Lycée général et technologique", Slug = "lycee-douanier-rousseau" },
-				new School { Id = 5, Name = "Lycée Réaumur", Address = "28 Rue des Déportés", City = "Laval", Description = "Lycée proposant des formations professionnelles et technologiques", Slug = "lycee-reaumur" },
-				new School { Id = 6, Name = "IIA Laval", Address = "5 Boulevard de l'Industrie, Saint-Berthevin", City = "Laval", Description = "Institut d'Informatique Appliquée spécialisé en informatique et numérique", Slug = "iia-laval" }
-			);
+			new School
+			{
+				Id = 1,
+				Name = "ESIEA Laval",
+				Address = "38 Rue des Drs Calmette et Guérin",
+				City = "Laval",
+				Description = "École d'ingénieurs spécialisée en numérique et cybersécurité",
+				Slug = "esiea-laval",
+				Location = new Point(-0.769905, 48.070711) { SRID = 4326 }
+			},
+			new School
+			{
+				Id = 2,
+				Name = "ESUP Laval",
+				Address = "123 Rue de Bretagne",
+				City = "Laval",
+				Description = "École de commerce offrant des BTS et des Bachelors",
+				Slug = "esup-laval",
+				Location = new Point(-0.780618, 48.070058) { SRID = 4326 }
+			},
+			new School
+			{
+				Id = 3,
+				Name = "IUT Laval",
+				Address = "52 Rue des Docteurs Calmette",
+				City = "Laval",
+				Description = "Institut Universitaire de Technologie",
+				Slug = "iut-laval",
+				Location = new Point(-0.770441, 48.071255) { SRID = 4326 }
+			},
+			new School
+			{
+				Id = 4,
+				Name = "Lycée Douanier Rousseau",
+				Address = "14 Rue de l'Alma",
+				City = "Laval",
+				Description = "Lycée général et technologique",
+				Slug = "lycee-douanier-rousseau",
+				Location = new Point(-0.769948, 48.068339) { SRID = 4326 }
+			},
+			new School
+			{
+				Id = 5,
+				Name = "Lycée Réaumur",
+				Address = "28 Rue des Déportés",
+				City = "Laval",
+				Description = "Lycée proposant des formations professionnelles et technologiques",
+				Slug = "lycee-reaumur",
+				Location = new Point(-0.770282, 48.069778) { SRID = 4326 }
+			},
+			new School
+			{
+				Id = 6,
+				Name = "IIA Laval",
+				Address = "5 Boulevard de l'Industrie, Saint-Berthevin",
+				City = "Laval",
+				Description = "Institut d'Informatique Appliquée spécialisé en informatique et numérique",
+				Slug = "iia-laval",
+				Location = new Point(-0.800985, 48.061545) { SRID = 4326 }
+			}
+		);
 
 			// Formations
 			modelBuilder.Entity<Formation>().HasData(

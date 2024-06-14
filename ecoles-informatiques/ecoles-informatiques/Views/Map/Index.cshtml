@@ -1,0 +1,81 @@
+@using System.Globalization
+@model ecoles_informatiques.Models.ViewModels.AdminSchoolEnumerationViewModel
+
+@{
+    ViewData["Title"] = "Carte";
+}
+
+<div>
+    <h1>Carte des écoles d'informatiques de Laval</h1>
+
+    <div id="map" style="height: 80vh; width: 80vw;"></div>
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="lib/openlayers/dist/ol.min.js"></script>
+    <script defer>
+        // Fonction de style des points
+        function styleFunction(description) {
+            return [
+                new ol.style.Style({
+                    image: new ol.style.Circle({
+                      radius: 10,
+                      fill: new ol.style.Fill({color: 'rgba(255, 255, 255)'}),
+                      stroke: new ol.style.Stroke({color: '#000000', width: 4}),
+                    }),
+                    text: new ol.style.Text({
+                        font: '16px Calibri, sans-serif',
+                        fill: new ol.style.Fill({color: '#000'}),
+                        stroke: new ol.style.Stroke({
+                            color: '#ffffff', width: 3,
+                        }),
+                        text: map.getView().getZoom() > 12 ? description : '',
+                    }),
+                }),
+            ];
+        }
+
+        // Instancie la source des points
+        let vectorSource = new ol.source.Vector({
+            wrapX: false
+        });
+
+        // Instancie la carte
+        let map = new ol.Map({
+            target: 'map',
+            layers: [
+                 new ol.layer.Tile({
+                     source: new ol.source.OSM()
+                 }),
+                 new ol.layer.Vector({source: vectorSource}),
+            ],
+            view: new ol.View({
+                center: ol.proj.fromLonLat([-0.7703, 48.0692]),
+                zoom: 14,
+            }),
+        });
+
+        // Récupère les écoles depuis le modèle
+        let addresses = [];
+        @foreach (var school in Model.Schools)
+        {
+            @if (null != school.Location)
+            {
+            @:addresses.push(["@(school.Location.X.ToString(new CultureInfo("en-US")))", "@(school.Location.Y.ToString(new CultureInfo("en-US")))", "@Html.Raw(school.Name)", "@Html.Raw(school.Address)"]);
+            }
+        }
+        
+        // Ajoute les points à la source
+        let features = [];
+        addresses.forEach((address) => {
+            const feature = new ol.Feature({
+                geometry: new ol.geom.Point(
+                    ol.proj.fromLonLat([address[0], address[1]]),
+                ),
+            });
+            feature.setStyle(styleFunction(address[2] + ' - ' + address[3]));
+            features.push(feature);
+        });
+        vectorSource.addFeatures(features);
+    </script>
+}

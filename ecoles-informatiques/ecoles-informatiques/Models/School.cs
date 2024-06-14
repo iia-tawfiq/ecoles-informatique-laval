@@ -1,4 +1,6 @@
-﻿namespace ecoles_informatiques.Models
+﻿using NetTopologySuite.Geometries;
+
+namespace ecoles_informatiques.Models
 {
     public class School
     {
@@ -9,6 +11,7 @@
 
         public string Description { get; set; }
         public string Slug { get; set; }
+        public Point? Location { get; set; }
 
         public List<Formation> Formations { get; set; }
     }

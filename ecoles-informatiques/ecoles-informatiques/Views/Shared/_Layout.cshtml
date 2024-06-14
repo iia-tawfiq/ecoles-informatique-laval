@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ecoles_informatiques.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/openlayers/ol.min.css" asp-append-version="true" />
 </head>
 <body>
     <header>
@@ -29,7 +30,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Diploma" asp-action="Index">Diplômes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Map">Carte</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Map" asp-action="Index">Carte</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
