@@ -12,7 +12,7 @@ using ecoles_informatiques.Data;
 namespace ecoles_informatiques.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240613090938_Seeds")]
+    [Migration("20240613074846_Seeds")]
     partial class Seeds
     {
         /// <inheritdoc />
@@ -158,35 +158,35 @@ namespace ecoles_informatiques.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "60fb5145-7fa7-4e07-af4d-323a8cb19b39",
+                            Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f566d4f1-71db-4e1d-9d2f-0687c115a3bd",
+                            ConcurrencyStamp = "ec189e15-c493-41dd-a6a3-7e06d221abab",
                             Email = "admin@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
-                            NormalizedUserName = "ADMIN@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKlSarKu3b7SY5zmTJiw/PXGEl44hYib6QB5ky2Ojoop9XtqcSz0Q3CtfAN48/4iaA==",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEUUwZdPcSmAhYjoDC+s7SQbQCj3fIfNoTfmifqBkbTN1Zjrz4+RsMH1QyWNMZodqQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "OECJYRXF22Y64JSHS5RWDF2M7GYBQE6G",
+                            SecurityStamp = "",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = "6250adfa-eb23-455b-aea7-494361b7f13f",
+                            Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "be3506fd-2240-41aa-83fa-5ff71692e6e7",
-                            Email = "test@test.com",
+                            ConcurrencyStamp = "c152dc2e-f586-4f45-9f8d-59b35b2c8e4c",
+                            Email = "user@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "TEST@TEST.COM",
-                            NormalizedUserName = "TEST@TEST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDV5FsUSkQxOUS174ZmRw7BnW/jsI8GLVdguXhJP1fbyev7gdDUIDvXX2xKgtsQLBQ==",
+                            NormalizedEmail = "USER@EXAMPLE.COM",
+                            NormalizedUserName = "USER",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKmZ0V9yI4wMmA0n0mli/SDatImAP5hKe3rsxSByvsTPU1RXV9NMUlKlVvTSG4VoKg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "RVWKTAEQWZLJUJXFHCXUHCQIDDWW27FQ",
+                            SecurityStamp = "",
                             TwoFactorEnabled = false,
-                            UserName = "ustest@test.comer"
+                            UserName = "user"
                         });
                 });
 
@@ -256,12 +256,12 @@ namespace ecoles_informatiques.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "60fb5145-7fa7-4e07-af4d-323a8cb19b39",
+                            UserId = "1",
                             RoleId = "1"
                         },
                         new
                         {
-                            UserId = "6250adfa-eb23-455b-aea7-494361b7f13f",
+                            UserId = "2",
                             RoleId = "2"
                         });
                 });
@@ -684,7 +684,7 @@ namespace ecoles_informatiques.Data.Migrations
             modelBuilder.Entity("ecoles_informatiques.Models.Formation", b =>
                 {
                     b.HasOne("ecoles_informatiques.Models.Diploma", "Diploma")
-                        .WithMany("Formations")
+                        .WithMany()
                         .HasForeignKey("DiplomaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -706,11 +706,6 @@ namespace ecoles_informatiques.Data.Migrations
                     b.Navigation("MinimumGrade");
 
                     b.Navigation("School");
-                });
-
-            modelBuilder.Entity("ecoles_informatiques.Models.Diploma", b =>
-                {
-                    b.Navigation("Formations");
                 });
 
             modelBuilder.Entity("ecoles_informatiques.Models.School", b =>

@@ -26,8 +26,8 @@ namespace ecoles_informatiques.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "60fb5145-7fa7-4e07-af4d-323a8cb19b39", 0, "f566d4f1-71db-4e1d-9d2f-0687c115a3bd", "admin@example.com", true, false, null, "ADMIN@EXAMPLE.COM", "ADMIN@EXAMPLE.COM", "AQAAAAIAAYagAAAAEPk+QzkkQL9UCTnt7ytQhAwrqcZtuXn//4ew15/RNW1GhploP4Q27tA/K1W6UlPjoA==", null, false, "OECJYRXF22Y64JSHS5RWDF2M7GYBQE6G", false, "admin" },
-                    { "6250adfa-eb23-455b-aea7-494361b7f13f", 0, "be3506fd-2240-41aa-83fa-5ff71692e6e7", "test@test.com", true, false, null, "TEST@TEST.COM", "TEST@TEST.COM", "AQAAAAIAAYagAAAAEEXOY9AhrU7GlpjYz2sEqlCIKzTATb6ljJRGtM/ZPAuzZScicbu6WbyyuNUl7gyCPQ==", null, false, "RVWKTAEQWZLJUJXFHCXUHCQIDDWW27FQ", false, "ustest@test.comer" }
+                    { "1", 0, "ec189e15-c493-41dd-a6a3-7e06d221abab", "admin@example.com", true, false, null, "ADMIN@EXAMPLE.COM", "ADMIN", "AQAAAAIAAYagAAAAEEUUwZdPcSmAhYjoDC+s7SQbQCj3fIfNoTfmifqBkbTN1Zjrz4+RsMH1QyWNMZodqQ==", null, false, "", false, "admin" },
+                    { "2", 0, "c152dc2e-f586-4f45-9f8d-59b35b2c8e4c", "user@example.com", true, false, null, "USER@EXAMPLE.COM", "USER", "AQAAAAIAAYagAAAAEKmZ0V9yI4wMmA0n0mli/SDatImAP5hKe3rsxSByvsTPU1RXV9NMUlKlVvTSG4VoKg==", null, false, "", false, "user" }
                 });
 
             migrationBuilder.InsertData(
@@ -59,8 +59,8 @@ namespace ecoles_informatiques.Data.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "1", "60fb5145-7fa7-4e07-af4d-323a8cb19b39" },
-                    { "2", "6250adfa-eb23-455b-aea7-494361b7f13f" }
+                    { "1", "1" },
+                    { "2", "2" }
                 });
 
             migrationBuilder.InsertData(
@@ -96,12 +96,12 @@ namespace ecoles_informatiques.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "AspNetUserRoles",
                 keyColumns: new[] { "RoleId", "UserId" },
-                keyValues: new object[] { "1", "60fb5145-7fa7-4e07-af4d-323a8cb19b39" });
+                keyValues: new object[] { "1", "1" });
 
             migrationBuilder.DeleteData(
                 table: "AspNetUserRoles",
                 keyColumns: new[] { "RoleId", "UserId" },
-                keyValues: new object[] { "2", "6250adfa-eb23-455b-aea7-494361b7f13f" });
+                keyValues: new object[] { "2", "2" });
 
             migrationBuilder.DeleteData(
                 table: "Formations",
@@ -156,12 +156,12 @@ namespace ecoles_informatiques.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "AspNetUsers",
                 keyColumn: "Id",
-                keyValue: "60fb5145-7fa7-4e07-af4d-323a8cb19b39");
+                keyValue: "1");
 
             migrationBuilder.DeleteData(
                 table: "AspNetUsers",
                 keyColumn: "Id",
-                keyValue: "6250adfa-eb23-455b-aea7-494361b7f13f");
+                keyValue: "2");
 
             migrationBuilder.DeleteData(
                 table: "Diplomas",
