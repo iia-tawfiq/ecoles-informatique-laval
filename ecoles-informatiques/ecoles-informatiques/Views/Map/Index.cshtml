@@ -7,20 +7,13 @@
 <div>
     <h1>Carte des écoles d'informatiques de Laval</h1>
 
-    <div id="map" style="height: 80%; width: 80%;"></div>
+    <div id="map" style="height: 80vh; width: 80vw;"></div>
 </div>
 
 @section scripts {
     <script type="text/javascript" src="lib/ol/dist/ol.js"></script>
     <script type="text/javascript" src="lib/ol-geocoder/dist/ol-geocoder.js"></script>
     <script defer>
-        // Récupère les écoles depuis le modèle
-        let addresses = [];
-        @foreach (var school in Model.Schools)
-        {
-            @:addresses.push(["@school.Address", "@school.City"]);
-        }
-
         let vectorSource = new ol.source.Vector({wrapX: false});
         let map = new ol.Map({
             target: 'map',
@@ -31,15 +24,27 @@
                  new ol.layer.Vector({source: vectorSource}),
             ],
             view: new ol.View({
-                center: ol.proj.fromLonLat([48.0692, -0.7703]),
+                center: ol.proj.fromLonLat([-0.7703, 48.0692]),
                 zoom: 14,
             }),
         });
 
+        // Récupère les écoles depuis le modèle
+        let addresses = [];
+
+        @foreach (var school in Model.Schools)
+        {
+            @if (null != school.Location)
+            {
+                @:addresses.push(["@school.Location.X", "@school.Location.Y"]);
+            }
+        }
+
+        // Ajoute les points à la carte
         features = [];
         addresses.forEach((address) => {
-            const lon = 0;
-            const lat = 0;
+            const lon = address[0];
+            const lat = address[1];
             const feature = new ol.Feature({
                 geometry: new ol.geom.Point(
                     ol.proj.fromLonLat([lon, lat]),
