@@ -1,0 +1,19 @@
+﻿@model DiplomaViewModel
+@{
+    ViewData["Title"] = Model.Diplomas.Name;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Model.Diplomas.Name</h1>
+</div>
+<div>
+    <ul>
+        @foreach (Formation f in Model.Formations)
+        {
+            if (@f.DiplomaId == Model.Diplomas.Id)
+            {
+                <li>@Model.Diplomas.Name</li>
+            }
+        }
+    </ul>
+</div>
