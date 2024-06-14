@@ -1,4 +1,4 @@
-﻿@model Formation
+﻿@model ecoles_informatiques.Models.ViewModels.FormationViewModel
 
 @{
     ViewData["Title"] = "Détails de la formation";
@@ -6,14 +6,14 @@
 
 <div class="container mt-5">
     <div class="text-center">
-        <h1 class="mb-4">@Model.Name <h1>
+        <h1 class="mb-4">@Model.Formation.Name <h1>
     </div>
 
                 </li>
                 <li class="list-group-item">
-                    <strong>Description :</strong> @Model.Description
+                    <strong>Description :</strong> @Model.Formation.Description
                 </li>
-                @if (Model.ApprenticeshipStatus)
+                @if (Model.Formation.ApprenticeshipStatus)
                 {
                     <li class="list-group-item">
                         <strong>Alternance :</strong> Cette formation est en alternance
@@ -25,7 +25,7 @@
                         <strong>Alternance :</strong> L'alternance n'est pas possible
                     </li>
                 }
-                @if (Model.StudentStatus)
+                @if (Model.Formation.StudentStatus)
                 {
                     <li class="list-group-item">
                         <strong>Statut étudiant :</strong> La formation permet le statut étudiant
