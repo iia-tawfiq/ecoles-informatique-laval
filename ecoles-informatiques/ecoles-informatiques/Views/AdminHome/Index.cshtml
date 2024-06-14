@@ -17,39 +17,34 @@
 
             <br />
 
-            <select>
-                @{
-                    string folderPath = @"..\..\wwwroot\img";
 
-                    if (Directory.Exists(folderPath))
+            @{
+                string folderPath = @"wwwroot\img";
+
+                if (Directory.Exists(folderPath))
+                {
+                    string[] files = Directory.GetFiles(folderPath);
+
+                    if (files != null)
                     {
-                        string[] files = Directory.GetFiles(folderPath);
 
-                        foreach (string file in files)
-                        {
-                            string fileName = Path.GetFileName(file);
+                        <select>
 
-                            <option>@fileName</option>
-                        }
+                            @foreach (string file in files)
+                            {
+                                string fileName = System.IO.Path.GetFileName(file);
+
+                                <option>@fileName</option>
+                            }
+
+                        </select>
+
+                        <br />
                     }
                 }
-            </select>
+            }
 
             <br />
-
-            <!--<form id="Form1" method="post" runat="server" EncType="multipart/form-data" action="WebForm1.aspx">
-                
-
-                <p>Choisis ton image : </p>
-
-                <INPUT id="oFile" type="file" runat="server" NAME="oFile">
-
-                <asp:button id="btnUpload" type="submit" text="Upload" runat="server"></asp:button>
-
-                <asp:Panel ID="frmConfirmation" Visible="False" Runat="server">
-                    <asp:Label id="lblUploadResult" Runat="server"></asp:Label>
-                </asp:Panel>
-            </form> -->
 
             <button type="submit" class="btn btn-primary">Enregistrer</button>
         </form>
