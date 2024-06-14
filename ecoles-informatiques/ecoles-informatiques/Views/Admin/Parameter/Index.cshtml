@@ -1,0 +1,29 @@
+@model ecoles_informatiques.Models.ViewModels.AdminParameterEnumerationViewModel
+
+@{
+    ViewData["Title"] = "Administration - Paramètres";
+}
+
+<div>
+    <h1>Administration des paramètres</h1>
+
+    <table>
+        <tr>
+            <th>Clé</th>
+            <th>Valeur</th>
+            <th>Actions</th>
+        </tr>
+        @foreach (var parameter in Model.Parameters)
+        {
+            <tr>
+                <td>@parameter.Key</td>
+                <td>@parameter.Value</td>
+                <td>
+                    <a asp-controller="AdminParameter" asp-action="Edit" asp-route-id="@parameter.Id">Editer</a>
+                    <a asp-controller="AdminParameter" asp-action="Delete" asp-route-id="@parameter.Id">Supprimer</a>
+                </td>
+            </tr>
+        }
+    </table>
+    <a asp-controller="AdminParameter" asp-action="Create">Créer</a>
+</div>
