@@ -1,10 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using ecoles_informatiques.Data;
 using ecoles_informatiques.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using Microsoft.EntityFrameworkCore;
 
-    public class SchoolController : Controller
-    {
-    private readonly ApplicationDbContext _context;
+namespace ecoles_informatiques.Controllers;
+
+public class SchoolController : Controller
+{
+    private ApplicationDbContext _context;
 
     public SchoolController(ApplicationDbContext context)
     {
@@ -12,12 +16,11 @@ using ecoles_informatiques.Models;
     }
 
     [HttpGet]
-        [Route("/ecoles")]
-        {
+    [Route("/ecole/{schoolId}")]
+    public IActionResult School(int schoolId)
+    {
+        School school = _context.Schools.Find(schoolId);
 
-
-        }
-        
-        return View(new SchoolEnumerationViewModel(filteredSchools));
+        return View(school);
     }
 }

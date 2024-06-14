@@ -6,13 +6,3 @@
     <p>Adresse : @Model.Address , @Model.City</p>
     <p>@Model.Description</p>
 </div>
-
-<ul>
-    @if(Model.Formations != null) 
-    {
-        @foreach (Formation formation in Model.Formations)
-        {
-            <li>@formation.Name</li>
-        }
-    }
-</ul>
