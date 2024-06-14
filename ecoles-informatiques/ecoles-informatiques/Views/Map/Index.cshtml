@@ -12,9 +12,36 @@
 
 @section scripts {
     <script type="text/javascript" src="lib/ol/dist/ol.js"></script>
-    <script type="text/javascript" src="lib/ol-geocoder/dist/ol-geocoder.js"></script>
     <script defer>
-        let vectorSource = new ol.source.Vector({wrapX: false});
+        // Fonction de style des points
+        function styleFunction() {
+            return [
+                new ol.style.Style({
+                    fill: new ol.style.Fill({
+                        color: 'rgba(255,255,255,0.4)',
+                    }),
+                    stroke: new ol.style.Stroke({
+                        color: '#3399CC',
+                        width: 1.25
+                    }),
+                    text: new ol.style.Text({
+                        font: '12px Calibri, sans-serif',
+                        fill: new ol.style.Fill({color: '#000'}),
+                        stroke: new ol.style.Stroke({
+                            color: '#fff', width: 2,
+                        }),
+                        text: map.getView().getZoom() > 12 ? this.get('description') : '',
+                    }),
+                }),
+            ];
+        }
+
+        // Instancie la source des points
+        let vectorSource = new ol.source.Vector({
+            wrapX: false
+        });
+
+        // Instancie la carte
         let map = new ol.Map({
             target: 'map',
             layers: [
@@ -31,28 +58,26 @@
 
         // Récupère les écoles depuis le modèle
         let addresses = [];
-
         @foreach (var school in Model.Schools)
         {
             @if (null != school.Location)
             {
-                @:addresses.push(["@school.Location.X", "@school.Location.Y"]);
+                @:addresses.push(["@school.Location.X", "@school.Location.Y", "@school.Name", "@school.Address"]);
             }
         }
 
-        // Ajoute les points à la carte
-        features = [];
+        // Ajoute les points à la source
+        let features = [];
         addresses.forEach((address) => {
-            const lon = address[0];
-            const lat = address[1];
             const feature = new ol.Feature({
                 geometry: new ol.geom.Point(
-                    ol.proj.fromLonLat([lon, lat]),
+                    ol.proj.fromLonLat([address[0], address[1]]),
                 ),
             });
+            feature.set('description', address[2] + ' - ' + address[3]);
+            feature.setStyle(styleFunction);
             features.push(feature);
         });
         vectorSource.addFeatures(features);
-
     </script>
 }

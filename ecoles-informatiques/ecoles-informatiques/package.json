@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "ol": "^9.2.4",
-    "ol-geocoder": "^4.3.3"
+    "ol": "^9.2.4"
   }
 }
