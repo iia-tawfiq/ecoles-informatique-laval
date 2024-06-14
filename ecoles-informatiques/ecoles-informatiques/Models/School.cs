@@ -11,7 +11,7 @@ namespace ecoles_informatiques.Models
 
         public string Description { get; set; }
         public string Slug { get; set; }
-        //       public Coordinate Location { get; set; }
+        public Point? Location { get; set; }
 
         public List<Formation> Formations { get; set; }
     }
