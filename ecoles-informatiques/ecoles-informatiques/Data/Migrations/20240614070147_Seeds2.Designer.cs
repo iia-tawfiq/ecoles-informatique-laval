@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ecoles_informatiques.Data;
 
@@ -11,9 +12,11 @@ using ecoles_informatiques.Data;
 namespace ecoles_informatiques.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240614070147_Seeds2")]
+    partial class Seeds2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -303,7 +306,7 @@ namespace ecoles_informatiques.Data.Migrations
 
                     b.HasIndex("GradeLevelId");
 
-                    b.ToTable("Diplomas", (string)null);
+                    b.ToTable("Diplomas");
 
                     b.HasData(
                         new
@@ -384,7 +387,7 @@ namespace ecoles_informatiques.Data.Migrations
 
                     b.HasIndex("SchoolId");
 
-                    b.ToTable("Formations", (string)null);
+                    b.ToTable("Formations");
 
                     b.HasData(
                         new
@@ -498,7 +501,7 @@ namespace ecoles_informatiques.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GradeLevels", (string)null);
+                    b.ToTable("GradeLevels");
 
                     b.HasData(
                         new
@@ -557,7 +560,7 @@ namespace ecoles_informatiques.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Schools", (string)null);
+                    b.ToTable("Schools");
 
                     b.HasData(
                         new

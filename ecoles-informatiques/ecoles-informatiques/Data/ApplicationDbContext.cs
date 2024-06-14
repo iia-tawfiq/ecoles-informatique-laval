@@ -156,19 +156,21 @@ namespace ecoles_informatiques.Data
 					Email = "admin@example.com",
 					NormalizedEmail = "ADMIN@EXAMPLE.COM",
 					EmailConfirmed = true,
-					PasswordHash = hasher.HashPassword(null, "Testtest9*"),
+					//PasswordHash = hasher.HashPassword(null, "Testtest9*"),
+					PasswordHash = "AQAAAAIAAYagAAAAEPk+QzkkQL9UCTnt7ytQhAwrqcZtuXn//4ew15/RNW1GhploP4Q27tA/K1W6UlPjoA==",
 					ConcurrencyStamp = "f566d4f1-71db-4e1d-9d2f-0687c115a3bd",
 					SecurityStamp = "OECJYRXF22Y64JSHS5RWDF2M7GYBQE6G",
 				},
 				new IdentityUser
 				{
 					Id = "6250adfa-eb23-455b-aea7-494361b7f13f",
-					UserName = "ustest@test.comer",
+					UserName = "test@test.com",
 					NormalizedUserName = "TEST@TEST.COM",
 					Email = "test@test.com",
 					NormalizedEmail = "TEST@TEST.COM",
 					EmailConfirmed = true,
-					PasswordHash = hasher.HashPassword(null, "Testtest9*"),
+					//PasswordHash = hasher.HashPassword(null, "Testtest9*"),
+					PasswordHash = "AQAAAAIAAYagAAAAEEXOY9AhrU7GlpjYz2sEqlCIKzTATb6ljJRGtM/ZPAuzZScicbu6WbyyuNUl7gyCPQ==",
 					ConcurrencyStamp = "be3506fd-2240-41aa-83fa-5ff71692e6e7",
 					SecurityStamp = "RVWKTAEQWZLJUJXFHCXUHCQIDDWW27FQ"
 				}
