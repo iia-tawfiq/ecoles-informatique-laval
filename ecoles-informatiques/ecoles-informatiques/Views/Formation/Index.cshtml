@@ -33,11 +33,14 @@
                 }
                 <li class="list-group-item">
                     <strong>Établissement :</strong>
-                    <a href="/ecoles">@Model.School.Name</a>
+                   <a asp-controller="School" asp-action="Index">@Model.School.Name</a>
                 </li>
             </ul>
+
             <div class="mt-4 text-center">
-                <a href="/ecoles" class="btn btn-primary">Retour à la liste des écoles</a>
+
+                <a asp-controller="School" asp-action="Index" class="btn btn-primary">Retour à la liste des écoles</a>
+
             </div>
         </div>
     </div>

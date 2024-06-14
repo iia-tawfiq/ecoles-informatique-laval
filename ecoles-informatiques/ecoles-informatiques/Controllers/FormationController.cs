@@ -17,7 +17,7 @@ namespace ecoles_informatiques.Controllers
         }
 
         [HttpGet]
-        [Route ("/Formation/{Id}") ]
+        [Route ("/formation/{Id}") ]
         public IActionResult Index(int Id)
         {
             Formation formation = _context.Formations.Find(Id);
