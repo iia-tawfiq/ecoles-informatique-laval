@@ -10,7 +10,7 @@ namespace ecoles_informatiques.Controllers;
 
 public class SchoolController : Controller
 {
-    private ApplicationDbContext _context;
+    private readonly ApplicationDbContext _context;
 
     public SchoolController(ApplicationDbContext context)
     {
@@ -40,7 +40,7 @@ public class SchoolController : Controller
     }
 
     [HttpGet]
-    [Route("/ecole/{schoolId}")]
+    [Route("/ecoles/{schoolId}")]
     public IActionResult School(int schoolId)
     {
         School school = _context.Schools.Find(schoolId);
