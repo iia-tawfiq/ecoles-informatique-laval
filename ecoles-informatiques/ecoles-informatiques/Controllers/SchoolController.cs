@@ -36,4 +36,13 @@ public class SchoolController : Controller
         
         return View(new SchoolEnumerationViewModel(filteredSchools));
     }
+
+    [HttpGet]
+    [Route("/ecoles/{schoolId}")]
+    public IActionResult School(int schoolId)
+    {
+        School school = _context.Schools.Find(schoolId);
+
+        return View(school);
+    }
 }
