@@ -1,0 +1,31 @@
+@model ecoles_informatiques.Models.ViewModels.AdminSchoolEnumerationViewModel
+
+@{
+    ViewData["Title"] = "Administration - Ecoles";
+}
+
+<div>
+    <h1>Administration des écoles</h1>
+
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>Adresse</th>
+            <th>Ville</th>
+            <th>Actions</th>
+        </tr>
+        @foreach (var school in Model.Schools)
+        {
+            <tr>
+                <td>@school.Name</td>
+                <td>@school.Address</td>
+                <td>@school.City</td>
+                <td>
+                    <a asp-controller="AdminSchool" asp-action="Edit" asp-route-id="@school.Id">Editer</a>
+                    <a asp-controller="AdminSchool" asp-action="Delete" asp-route-id="@school.Id">Supprimer</a>
+                </td>
+            </tr>
+        }
+    </table>
+    <a asp-controller="AdminSchool" asp-action="Create">Créer</a>
+</div>
