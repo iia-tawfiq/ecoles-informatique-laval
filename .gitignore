@@ -396,5 +396,3 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-/ecoles-informatiques/ecoles-informatiques/wwwroot/lib/bootstrap
-/ecoles-informatiques/ecoles-informatiques/wwwroot/lib
