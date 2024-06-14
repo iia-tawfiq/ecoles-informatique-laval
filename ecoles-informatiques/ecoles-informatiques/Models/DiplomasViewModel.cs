@@ -2,10 +2,10 @@
 
 namespace ecoles_informatiques.Models
 {
-    public class DiplomasViewModel
+    public class DiplomaViewModel
     {
         public List<Diploma> Diplomas { get; set; }
-        public DiplomasViewModel(List<Diploma> diplomas)
+        public DiplomaViewModel(List<Diploma> diplomas)
         {
             Diplomas = diplomas;
         }

@@ -14,14 +14,9 @@ namespace ecoles_informatiques.Controllers
             _context = context;
         }
 
-        public IActionResult Diplomas()
-        {
-            DiplomasViewModel model = new DiplomasViewModel(_context.Diplomas.ToList());
-            return View(model);
-        }
         public IActionResult Diploma()
         {
-            DiplomaViewModel model = new DiplomaViewModel(_context.Formations.ToList());
+            DiplomaViewModel model = new DiplomaViewModel(_context.Diplomas.ToList());
             return View(model);
         }
         public IActionResult Error()
