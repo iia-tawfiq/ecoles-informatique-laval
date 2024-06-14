@@ -13,8 +13,8 @@ using ecoles_informatiques.Data;
 namespace ecoles_informatiques.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240614120254_SeedsLocation")]
-    partial class SeedsLocation
+    [Migration("20240614140254_SeedSchoolLocation")]
+    partial class SeedSchoolLocation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

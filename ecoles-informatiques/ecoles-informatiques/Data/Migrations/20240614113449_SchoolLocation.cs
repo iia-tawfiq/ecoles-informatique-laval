@@ -17,47 +17,6 @@ namespace ecoles_informatiques.Data.Migrations
                 type: "geography",
                 nullable: true);
 
-            migrationBuilder.UpdateData(
-                table: "Schools",
-                keyColumn: "Id",
-                keyValue: 1,
-                column: "Location",
-                value: null);
-
-            migrationBuilder.UpdateData(
-                table: "Schools",
-                keyColumn: "Id",
-                keyValue: 2,
-                column: "Location",
-                value: null);
-
-            migrationBuilder.UpdateData(
-                table: "Schools",
-                keyColumn: "Id",
-                keyValue: 3,
-                column: "Location",
-                value: null);
-
-            migrationBuilder.UpdateData(
-                table: "Schools",
-                keyColumn: "Id",
-                keyValue: 4,
-                column: "Location",
-                value: null);
-
-            migrationBuilder.UpdateData(
-                table: "Schools",
-                keyColumn: "Id",
-                keyValue: 5,
-                column: "Location",
-                value: null);
-
-            migrationBuilder.UpdateData(
-                table: "Schools",
-                keyColumn: "Id",
-                keyValue: 6,
-                column: "Location",
-                value: null);
         }
 
         /// <inheritdoc />

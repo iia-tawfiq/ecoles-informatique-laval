@@ -6,11 +6,17 @@ using NetTopologySuite.Geometries;
 namespace ecoles_informatiques.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class SeedsLocation : Migration
+    public partial class SeedSchoolLocation : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AddColumn<Point>(
+                name: "Location",
+                table: "Schools",
+                type: "geography",
+                nullable: true);
+
             migrationBuilder.UpdateData(
                 table: "Schools",
                 keyColumn: "Id",

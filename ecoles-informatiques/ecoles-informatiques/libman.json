@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+    "libraries": [
+        {
+            "library": "openlayers@9.2.4",
+            "provider": "cdnjs",
+            "destination": "wwwroot/lib/openlayers",
+            "files": [
+                "ol.min.css",
+                "dist/ol.min.js"
+            ]
+        }
+    ]
+}
