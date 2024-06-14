@@ -1,15 +1,30 @@
 ﻿@model Formation
 
 @{
-    ViewData["Title"] = "Liste des Formations";
+    ViewData["Title"] = "Détails de la formation";
 }
 
 <div class="text-center">
-    <h1>Liste des Formations</h1>
+    <h1>Détails de la formation</h1>
     <ul>
-        @foreach (string Name in Model)
-        {
-            <li>@Name</li>
-        }
+        
+            <li>
+                @Model.Name
+            @if (true == Model.ApprenticeshipStatus)
+            {
+                <li>En alternance</li>
+            } else
+            {
+                <li>L'alternance n'est pas possible</li>
+            }
+            @if (true == Model.StudentStatus)
+            {
+            <li>Statut étudiant
+
+            </li>
+            }
+            @Model.School.Name
+
+            
     </ul>
 </div>

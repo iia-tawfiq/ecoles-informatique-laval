@@ -1,4 +1,5 @@
 ﻿using ecoles_informatiques.Data;
+using ecoles_informatiques.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ecoles_informatiques.Controllers
@@ -17,8 +18,9 @@ namespace ecoles_informatiques.Controllers
         [Route ("/Formation/{Id}") ]
         public IActionResult Index(int Id)
         {
-
-            return View();
+            Formation formation = _context.Formations.Find(Id);
+            School scholl = _context.Schools.Find(formation.SchoolId);
+            return View(formation);
         }
     }
 }
