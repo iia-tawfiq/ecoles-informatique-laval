@@ -1,20 +1,15 @@
 ﻿@model Formation
 
-
-<h1>@Model.Name</h1>
-
-<div>
-    <p>Adresse : @Model.Address , @Model.City</p>
-    <p>@Model.Description</p>
-</div>
-
-<ul>
-    @if(Model.Formations != null) 
-    {
-        @foreach (School formation)
-        {
-            <li>@formation.Name</li>
-        }
-    }
-</ul>
+@{
+    ViewData["Title"] = "Liste des Formations";
 }
+
+<div class="text-center">
+    <h1>Liste des Formations</h1>
+    <ul>
+        @foreach (string Name in Model)
+        {
+            <li>@Name</li>
+        }
+    </ul>
+</div>

@@ -12,7 +12,10 @@ namespace ecoles_informatiques.Controllers
         {
             _context = context;
         }
-        public IActionResult Index(string Name)
+
+        [HttpGet]
+        [Route ("/Formation/{Id}") ]
+        public IActionResult Index(int Id)
         {
 
             return View();
