@@ -1,0 +1,53 @@
+@model ecoles_informatiques.Models.ViewModels.AdminSchoolEnumerationViewModel
+
+@{
+    ViewData["Title"] = "Carte";
+}
+
+<div>
+    <h1>Carte des écoles d'informatiques de Laval</h1>
+
+    <div id="map" style="height: 80%; width: 80%;"></div>
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="lib/ol/dist/ol.js"></script>
+    <script type="text/javascript" src="lib/ol-geocoder/dist/ol-geocoder.js"></script>
+    <script defer>
+        // Récupère les écoles depuis le modèle
+        let addresses = [];
+        @foreach (var school in Model.Schools)
+        {
+            @:addresses.push(["@school.Address", "@school.City"]);
+        }
+
+        let vectorSource = new ol.source.Vector({wrapX: false});
+        let map = new ol.Map({
+            target: 'map',
+            layers: [
+                 new ol.layer.Tile({
+                     source: new ol.source.OSM()
+                 }),
+                 new ol.layer.Vector({source: vectorSource}),
+            ],
+            view: new ol.View({
+                center: ol.proj.fromLonLat([48.0692, -0.7703]),
+                zoom: 14,
+            }),
+        });
+
+        features = [];
+        addresses.forEach((address) => {
+            const lon = 0;
+            const lat = 0;
+            const feature = new ol.Feature({
+                geometry: new ol.geom.Point(
+                    ol.proj.fromLonLat([lon, lat]),
+                ),
+            });
+            features.push(feature);
+        });
+        vectorSource.addFeatures(features);
+
+    </script>
+}
