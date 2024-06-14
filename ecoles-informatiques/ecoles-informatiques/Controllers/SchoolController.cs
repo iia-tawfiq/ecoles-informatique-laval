@@ -15,10 +15,10 @@ public class SchoolController : Controller
         _context = context;
     }
 
-    [Route("/ecole/")]
+    [HttpGet]
+    [Route("/ecole/{schoolId}")]
     public IActionResult School(int schoolId)
     {
-        schoolId = 2;
         School school = _context.Schools.Find(schoolId);
 
         return View(school);
