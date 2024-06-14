@@ -16,6 +16,7 @@
   - Gestion des formations /admin/formation/id (Lucas)
   - Gestion des diplômes /admin/diplomes (Nathan)
   - récupérer les données sur les écoles (Gaël)
+  - Gestion des paramètres
 - Créer la base de données (Lucas)
   - MCD (Ensemble)
   - Unicité du slug du nom de l'école (Killian Trigger !)
