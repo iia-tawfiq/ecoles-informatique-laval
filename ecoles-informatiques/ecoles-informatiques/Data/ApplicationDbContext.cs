@@ -12,6 +12,9 @@ namespace ecoles_informatiques.Data
         public DbSet<Formation> Formations { get; set; }
         public DbSet<GradeLevel> GradeLevels { get; set; }
         public DbSet<Diploma> Diplomas { get; set; }
+        public DbSet<Parameter> Parameters { get; set; }
+
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
         {
