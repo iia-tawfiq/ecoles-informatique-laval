@@ -15,14 +15,14 @@ namespace ecoles_informatiques.Data.Migrations
                 keyColumn: "Id",
                 keyValue: "60fb5145-7fa7-4e07-af4d-323a8cb19b39",
                 column: "PasswordHash",
-                value: "AQAAAAIAAYagAAAAECBA2P9NbBF4EYnzbeOzgLBDnjEYEm7cTMozZhKpUxsSvgf3UgyJ0BcUAD6MEaCUJQ==");
+                value: "AQAAAAIAAYagAAAAELmwpdXnMyoLlQ+JEtCa3jLKBq7pd/S4eUcCy4imrZcJ3LTaTLPqSRP+OYWsiLeFOw==");
 
             migrationBuilder.UpdateData(
                 table: "AspNetUsers",
                 keyColumn: "Id",
                 keyValue: "6250adfa-eb23-455b-aea7-494361b7f13f",
                 column: "PasswordHash",
-                value: "AQAAAAIAAYagAAAAEBcTkYciWW4JcO+khhM72JhyLQdE4pJqtwld0nLun38kuv22+8lzma89SdbPQV27WA==");
+                value: "AQAAAAIAAYagAAAAEIlypOGk1n8RfW5Dgqbjcj8eueMeL9PHpxGT4N6wUZynbidIay4Ut+aWJusiPM1BPg==");
         }
 
         /// <inheritdoc />

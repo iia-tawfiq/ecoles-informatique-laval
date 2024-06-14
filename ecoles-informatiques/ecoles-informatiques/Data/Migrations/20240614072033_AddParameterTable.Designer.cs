@@ -12,7 +12,7 @@ using ecoles_informatiques.Data;
 namespace ecoles_informatiques.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240613144633_AddParameterTable")]
+    [Migration("20240614072033_AddParameterTable")]
     partial class AddParameterTable
     {
         /// <inheritdoc />
@@ -166,7 +166,7 @@ namespace ecoles_informatiques.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAECBA2P9NbBF4EYnzbeOzgLBDnjEYEm7cTMozZhKpUxsSvgf3UgyJ0BcUAD6MEaCUJQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELmwpdXnMyoLlQ+JEtCa3jLKBq7pd/S4eUcCy4imrZcJ3LTaTLPqSRP+OYWsiLeFOw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "OECJYRXF22Y64JSHS5RWDF2M7GYBQE6G",
                             TwoFactorEnabled = false,
@@ -182,7 +182,7 @@ namespace ecoles_informatiques.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@TEST.COM",
                             NormalizedUserName = "TEST@TEST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBcTkYciWW4JcO+khhM72JhyLQdE4pJqtwld0nLun38kuv22+8lzma89SdbPQV27WA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIlypOGk1n8RfW5Dgqbjcj8eueMeL9PHpxGT4N6wUZynbidIay4Ut+aWJusiPM1BPg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "RVWKTAEQWZLJUJXFHCXUHCQIDDWW27FQ",
                             TwoFactorEnabled = false,
