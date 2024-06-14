@@ -9,7 +9,7 @@
     <ul>
         @foreach (Diploma d in Model.Diplomas)
         {
-            <li><a asp-controller="Diplomas" asp-action="Diploma" asp-route-id="@d.Id">@d.Name</a></li>
+            <li><a asp-controller="Diploma" asp-action="Diploma" asp-route-id="@d.Id">@d.Name</a></li>
         }
         
     </ul>

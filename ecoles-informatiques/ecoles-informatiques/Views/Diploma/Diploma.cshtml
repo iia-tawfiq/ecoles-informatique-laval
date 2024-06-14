@@ -12,7 +12,7 @@
         {
             if (@f.DiplomaId == Model.Diplomas.Id)
             {
-                <li><a asp-controller="Diplomas" asp-action="Diploma" asp-route-id="Model.Diplomas.Id">@Model.Diplomas.Name</a></li>
+                <li>@Model.Diplomas.Name</li>
             }
         }
     </ul>

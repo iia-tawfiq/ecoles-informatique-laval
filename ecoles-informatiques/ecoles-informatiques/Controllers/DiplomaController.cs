@@ -12,11 +12,16 @@ namespace ecoles_informatiques.Controllers
         public DiplomaController(ApplicationDbContext context)
         {
             _context = context;
+        }
 
-        public IActionResult Diploma()
+        public IActionResult Index()
         {
-            DiplomaViewModel model = new DiplomaViewModel(_context.Formations.ToList());
-            DiplomaViewModel model = new DiplomaViewModel(_context.Diplomas.ToList());
+            DiplomasViewModel model = new DiplomasViewModel(_context.Diplomas.ToList());
+            return View(model);
+        }
+        public IActionResult Diploma(int id)
+        {
+            DiplomaViewModel model = new DiplomaViewModel(_context.Diplomas.Find(id));
             return View(model);
         }
         public IActionResult Error()
