@@ -5,7 +5,7 @@ namespace ecoles_informatiques.Controllers
     public class AdminHomeController : Controller
     {
         [Route("/admin/accueil")]
-        public IActionResult AdminHome()
+        public IActionResult Index()
         {
             return View();
         }

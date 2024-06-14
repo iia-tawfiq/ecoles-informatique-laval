@@ -1,0 +1,61 @@
+﻿@using System;
+@using System.IO;
+
+@{
+    ViewData["Title"] = "Admin Accueil";
+}
+
+<div>
+    <h1 class="display-4 text-center">Admin Accueil</h1>
+    <div>
+        <form method="post">
+            <p>Changer le texte :</p>
+
+            <div class="form-group">
+                <textarea class="form-control" name="text" rows="1"></textarea>
+            </div>
+
+            <br />
+
+            <select>
+                @{
+                    string folderPath = @"..\..\wwwroot\img";
+
+                    if (Directory.Exists(folderPath))
+                    {
+                        string[] files = Directory.GetFiles(folderPath);
+
+                        foreach (string file in files)
+                        {
+                            string fileName = Path.GetFileName(file);
+
+                            <option>@fileName</option>
+                        }
+                    }
+                }
+            </select>
+
+            <br />
+
+            <!--<form id="Form1" method="post" runat="server" EncType="multipart/form-data" action="WebForm1.aspx">
+                
+
+                <p>Choisis ton image : </p>
+
+                <INPUT id="oFile" type="file" runat="server" NAME="oFile">
+
+                <asp:button id="btnUpload" type="submit" text="Upload" runat="server"></asp:button>
+
+                <asp:Panel ID="frmConfirmation" Visible="False" Runat="server">
+                    <asp:Label id="lblUploadResult" Runat="server"></asp:Label>
+                </asp:Panel>
+            </form> -->
+
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </form>
+
+        <br />
+
+
+    </div>
+</div>
