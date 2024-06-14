@@ -1,0 +1,19 @@
+﻿@model DiplomaFormationViewModel
+@{
+    ViewData["Title"] = "BTS";
+}
+
+<div class="text-center">
+    <h1 class="display-4">BTS</h1>
+</div>
+<div>
+    <ul>
+        @foreach (Formation f in Model.Formations)
+        {
+            if (@f.DiplomaId = 1)
+            {
+                <li><a asp-controller="Diplomas" asp-action="Diploma" asp-route-id="@d.Id">@d.Name</a></li>
+            }
+        }
+    </ul>
+</div>

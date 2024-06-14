@@ -19,6 +19,11 @@ namespace ecoles_informatiques.Controllers
             DiplomaViewModel model = new DiplomaViewModel(_context.Diplomas.ToList());
             return View(model);
         }
+        public IActionResult DiplomaFormation()
+        {
+            DiplomaFormationViewModel model = new DiplomaFormationViewModel(_context.Formations.ToList());
+            return View(model);
+        }
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
