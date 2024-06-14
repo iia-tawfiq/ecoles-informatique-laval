@@ -4,27 +4,41 @@
     ViewData["Title"] = "Détails de la formation";
 }
 
-<div class="text-center">
-    <h1>Détails de la formation</h1>
-    <ul>
-        
-            <li>
-                @Model.Name
-            @if (true == Model.ApprenticeshipStatus)
-            {
-                <li>En alternance</li>
-            } else
-            {
-                <li>L'alternance n'est pas possible</li>
-            }
-            @if (true == Model.StudentStatus)
-            {
-            <li>Statut étudiant
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="mb-4">@Model.Name <h1>
+    </div>
 
-            </li>
-            }
-            @Model.School.Name
-
-            
-    </ul>
+                </li>
+                <li class="list-group-item">
+                    <strong>Description :</strong> @Model.Description
+                </li>
+                @if (Model.ApprenticeshipStatus)
+                {
+                    <li class="list-group-item">
+                        <strong>Alternance :</strong> Cette formation est en alternance
+                    </li>
+                }
+                else
+                {
+                    <li class="list-group-item">
+                        <strong>Alternance :</strong> L'alternance n'est pas possible
+                    </li>
+                }
+                @if (Model.StudentStatus)
+                {
+                    <li class="list-group-item">
+                        <strong>Statut étudiant :</strong> La formation permet le statut étudiant
+                    </li>
+                }
+                <li class="list-group-item">
+                    <strong>Établissement :</strong>
+                    <a href="/ecoles">@Model.School.Name</a>
+                </li>
+            </ul>
+            <div class="mt-4 text-center">
+                <a href="/ecoles" class="btn btn-primary">Retour à la liste des écoles</a>
+            </div>
+        </div>
+    </div>
 </div>
